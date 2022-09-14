@@ -1,0 +1,16 @@
+/*=========================
+  Layout
+  =========================*/
+
+.jd-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.jd-layout__header {}
+.jd-layout__content {
+  flex-grow: 1;
+}
+.jd-layout__footer {
+  margin-top: auto;
+}
