@@ -16,7 +16,7 @@ $color-bg-error: #ff0000;
 
 $color-text-primary: #343235;
 $color-text-primary-inverse: #fff;
-$color-text-secondary: #343235;
+$color-text-secondary: #999;
 $color-text-accent: #1375f8;
 $color-text-success: #39dd00;
 $color-text-warning: #fc9b00;
@@ -40,3 +40,9 @@ $font-secondary: sans-serif;
 ===========================*/
 
 $path-image: '../img';
+
+/*=========================
+  Header
+===========================*/
+
+$header-height: 4rem;

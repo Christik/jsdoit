@@ -1,0 +1,21 @@
+/*=========================
+  Menu Root
+===========================*/
+
+.jd-menu-root {
+  display: flex;
+  align-items: center;
+}
+.jd-menu-root__item {}
+.jd-menu-root__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  height: $header-height;
+
+  &.is-active {
+    pointer-events: none;
+    color: $color-text-secondary;
+  }
+}
