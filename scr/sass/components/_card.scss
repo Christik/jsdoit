@@ -1,0 +1,39 @@
+/*=========================
+  Card
+===========================*/
+
+.jd-card {
+  position: relative;
+  border: solid 1px $color-border-primary;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.jd-card__cover {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+.jd-card__cover__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+.jd-card__body {
+  padding: 1rem;
+}
+.jd-card__title {
+  margin-bottom: 1em;
+}
+.jd-card__description {}
+.jd-card__footer {
+  padding: 1rem;
+  border-top: solid 1px $color-border-primary;
+  margin-top: auto;
+}
+.jd-card__level {
+  position: absolute;
+  right: 1rem;
+  top: .5rem;
+}
