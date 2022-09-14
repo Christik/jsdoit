@@ -23,10 +23,15 @@
   padding: 1rem;
 }
 .jd-card__title {
-  margin-bottom: 1em;
+  font-size: .9rem;
+  font-weight: 700;
+  margin-bottom: .75em;
 }
-.jd-card__description {}
+.jd-card__description {
+  @extend .jd-text-body;
+}
 .jd-card__footer {
+  @extend .jd-text-body;
   padding: 1rem;
   border-top: solid 1px $jd-color-border-primary;
   margin-top: auto;

@@ -6,6 +6,7 @@
   position: relative;
 }
 .jd-field__input {
+  @extend .jd-text-body;
   display: block;
   width: 100%;
   height: $jd-control-height;
