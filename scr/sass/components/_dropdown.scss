@@ -1,0 +1,54 @@
+/*=========================
+  Dropdown
+===========================*/
+
+.jd-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+.jd-dropdown__trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: $control-height;
+  border: solid 1px $color-border-primary;
+}
+.jd-dropdown__trigger__text {
+  padding: 0 .75rem;
+}
+.jd-dropdown__trigger__arrow {
+  border-left: solid 1px $color-border-primary;
+  width: $control-height;
+  height: 100%;
+}
+.jd-dropdown__expand {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: -2px;
+  padding-top: 1px;
+  z-index: 10;
+
+  &.is-opened {
+    display: block;
+  }
+}
+.jd-dropdown__list {
+  background: $color-bg-primary;
+  border: solid 1px $color-border-primary;
+}
+.jd-dropdown__item {
+  padding: .5rem .75rem;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:not(:first-child) {
+    border-top: solid 1px $color-border-primary;
+  }
+
+  &.is-active {
+    background-color: $color-bg-substrate;
+    color: $color-text-secondary;
+  }
+}
