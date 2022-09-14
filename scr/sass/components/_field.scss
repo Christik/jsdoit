@@ -8,26 +8,26 @@
 .jd-field__input {
   display: block;
   width: 100%;
-  height: $control-height;
+  height: $jd-control-height;
   padding: 0 .75rem;
-  border: solid 1px $color-border-primary;
+  border: solid 1px $jd-color-border-primary;
   background: none;
-  color: $color-text-primary;
+  color: $jd-color-text-primary;
 
   &::placeholder {
-    color: $color-text-secondary;
+    color: $jd-color-text-secondary;
   }
 }
 .jd-field__icon {
   position: absolute;
   top: 0;
-  width: $control-height;
+  width: $jd-control-height;
   height: 100%;
 }
 
 .jd-field--has-icon-left {
   .jd-field__input {
-    padding-left: $control-height;
+    padding-left: $jd-control-height;
   }
   .jd-field__icon {
     left: 0;

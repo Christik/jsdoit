@@ -4,7 +4,7 @@
 
 .jd-card {
   position: relative;
-  border: solid 1px $color-border-primary;
+  border: solid 1px $jd-color-border-primary;
   display: flex;
   flex-direction: column;
 }
@@ -28,7 +28,7 @@
 .jd-card__description {}
 .jd-card__footer {
   padding: 1rem;
-  border-top: solid 1px $color-border-primary;
+  border-top: solid 1px $jd-color-border-primary;
   margin-top: auto;
 }
 .jd-card__level {

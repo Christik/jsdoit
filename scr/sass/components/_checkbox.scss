@@ -16,7 +16,7 @@
   display: block;
   width: 1rem;
   height: 1rem;
-  border: solid 2px $color-border-primary;
+  border: solid 2px $jd-color-border-primary;
 }
 .jd-checkbox__text {
   display: block;
@@ -26,5 +26,5 @@
 // Checked
 .jd-checkbox__input:checked + .jd-checkbox__box {
   border-color: transparent;
-  background-color: $color-bg-accent;
+  background-color: $jd-color-bg-accent;
 }
