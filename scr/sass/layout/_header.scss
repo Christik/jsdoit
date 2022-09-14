@@ -2,7 +2,9 @@
   Header
   =========================*/
 
-.jd-header {}
+.jd-header {
+  border-bottom: solid 1px $color-border-primary;
+}
 .jd-header__in {
   height: 4rem;
   display: flex;
