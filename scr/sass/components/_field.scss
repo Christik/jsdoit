@@ -1,0 +1,35 @@
+/*=========================
+  Field
+===========================*/
+
+.jd-field {
+  position: relative;
+}
+.jd-field__input {
+  display: block;
+  width: 100%;
+  height: $control-height;
+  padding: 0 .75rem;
+  border: solid 1px $color-border-primary;
+  background: none;
+  color: $color-text-primary;
+
+  &::placeholder {
+    color: $color-text-secondary;
+  }
+}
+.jd-field__icon {
+  position: absolute;
+  top: 0;
+  width: $control-height;
+  height: 100%;
+}
+
+.jd-field--has-icon-left {
+  .jd-field__input {
+    padding-left: $control-height;
+  }
+  .jd-field__icon {
+    left: 0;
+  }
+}
