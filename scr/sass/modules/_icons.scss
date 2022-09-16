@@ -1,0 +1,50 @@
+/*=========================
+  Icons
+===========================*/
+
+.jd-icon {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: $jd-color-text-primary;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 50%;
+  mask-position: 50% 50%;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/*=========================
+  Icon Types
+===========================*/
+
+$jd-icons:
+  search, code, info, file-text, down,
+  // social
+  telegram, github, twitter;
+
+@each $name in $jd-icons {
+  .jd-icon--#{$name} {
+    -webkit-mask-image: url('#{$jd-path-icons}/#{$name}.svg');
+    mask-image: url('#{$jd-path-icons}/#{$name}.svg');
+  }
+}
+
+/*=========================
+  Icons Sizes
+===========================*/
+
+$jd-icon-sizes: (
+  xs: .6,
+  s: .8,
+  m: 1.2
+);
+
+@each $name, $size in $jd-icon-sizes {
+  .jd-icon--#{$name} {
+    width: #{$size}rem;
+    height: #{$size}rem;
+  }
+}
+

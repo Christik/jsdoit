@@ -13,11 +13,20 @@
   justify-content: center;
   padding: 0 1rem;
   height: $jd-header-height;
+}
+.jd-menu-root__link__text {
   font-size: .7rem;
-  font-weight: 700;
+}
+.jd-menu-root__link__icon + .jd-menu-root__link__text {
+  margin-left: .5rem;
+}
 
-  &.is-active {
+// Active
+.jd-menu-root__link.is-active {
     pointer-events: none;
     color: $jd-color-text-secondary;
-  }
+
+    .jd-menu-root__link__icon {
+      background-color: $jd-color-text-secondary;
+    }
 }
