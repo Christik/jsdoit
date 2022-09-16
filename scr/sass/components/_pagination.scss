@@ -1,0 +1,27 @@
+/*=========================
+  Pagination
+===========================*/
+
+.jd-pagination {}
+.jd-pagination__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.jd-pagination__item {
+  margin: .5rem;
+}
+.jd-pagination__link,
+.jd-pagination__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  height: $jd-control-height;
+}
+.jd-pagination__link {
+  border: solid 1px $jd-color-border-primary;
+  min-width: $jd-control-height;
+  padding: 0 .5rem;
+}
+.jd-pagination__divider {}
