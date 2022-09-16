@@ -1,0 +1,36 @@
+/*=========================
+  Badge
+===========================*/
+
+.jd-badge {
+  @extend .jd-text-body;
+  @extend .jd-text-body--s;
+
+  display: inline-flex;
+  align-items: center;
+  height: 1.2rem;
+  border-radius: .6rem;
+  padding: 0 .6rem .05rem;
+  background: $jd-color-bg-substrate;
+  font-weight: 500;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.jd-badge--accent-secondary {
+  background-color: $jd-color-bg-accent-secondary;
+}
+.jd-badge--accent {
+  color: $jd-color-text-primary-inverse;
+  background-color: $jd-color-bg-accent;
+}
+.jd-badge--success {
+  background-color: $jd-color-bg-success;
+}
+.jd-badge--warning {
+  background-color: $jd-color-bg-warning;
+}
+.jd-badge--error {
+  color: $jd-color-text-primary-inverse;
+  background-color: rgba($jd-color-bg-error, 100%);
+}

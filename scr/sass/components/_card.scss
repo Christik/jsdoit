@@ -25,11 +25,20 @@
 .jd-card__body {
   padding: 1rem;
 }
+.jd-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: map-get($jd-spacers, 's');
+}
 .jd-card__title {
   font-size: .85rem;
   font-weight: 500;
   letter-spacing: .015em;
-  margin-bottom: .5em;
+  margin-top: .1rem;
+}
+.jd-card__level {
+  margin-left: map-get($jd-spacers, 'm')
 }
 .jd-card__description {
   @extend .jd-text-body;
@@ -42,9 +51,4 @@
   padding: 1rem;
   border-top: solid 1px $jd-color-border-primary;
   margin-top: auto;
-}
-.jd-card__level {
-  position: absolute;
-  right: 1rem;
-  top: .5rem;
 }
