@@ -3,7 +3,8 @@
   =========================*/
 
 .jd-header {
-  border-bottom: solid 1px $jd-color-border-primary;
+  @extend .jd-shadow-m;
+  background: $jd-color-bg-primary;
 }
 .jd-header__in {
   height: $jd-header-height;

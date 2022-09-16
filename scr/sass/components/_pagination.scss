@@ -17,11 +17,15 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  height: $jd-control-height;
+  height: $jd-control-height-s;
 }
 .jd-pagination__link {
+  @extend .jd-border-radius-s;
+  @extend .jd-text-body;
+
+  font-weight: 500;
   border: solid 1px $jd-color-border-primary;
-  min-width: $jd-control-height;
+  min-width: $jd-control-height-s;
   padding: 0 .5rem;
 }
 .jd-pagination__divider {}

@@ -1,0 +1,15 @@
+/*=========================
+  Border-radius
+===========================*/
+
+$jd-border-radiuses: (
+  xs: .1,
+  s: .3,
+  m: .8
+);
+
+@each $name, $size in $jd-border-radiuses {
+  .jd-border-radius-#{$name} {
+    border-radius: #{$size}rem;
+  }
+}

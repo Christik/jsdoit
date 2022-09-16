@@ -3,10 +3,13 @@
 ===========================*/
 
 .jd-card {
+  @extend .jd-border-radius-m;
+  @extend .jd-shadow-m;
+
   position: relative;
-  border: solid 1px $jd-color-border-primary;
   display: flex;
   flex-direction: column;
+  background: $jd-color-bg-primary;
 }
 .jd-card__cover {
   border-top-left-radius: inherit;
@@ -23,15 +26,19 @@
   padding: 1rem;
 }
 .jd-card__title {
-  font-size: .9rem;
-  font-weight: 700;
-  margin-bottom: .75em;
+  font-size: .85rem;
+  font-weight: 500;
+  letter-spacing: .015em;
+  margin-bottom: .5em;
 }
 .jd-card__description {
   @extend .jd-text-body;
+
+  color: $jd-color-text-secondary;
 }
 .jd-card__footer {
   @extend .jd-text-body;
+
   padding: 1rem;
   border-top: solid 1px $jd-color-border-primary;
   margin-top: auto;

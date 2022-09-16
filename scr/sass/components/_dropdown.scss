@@ -7,11 +7,14 @@
   display: inline-flex;
 }
 .jd-dropdown__trigger {
+  @extend .jd-border-radius-s;
+  @extend .jd-shadow-s;
   cursor: pointer;
   display: flex;
   align-items: center;
   height: $jd-control-height;
   border: solid 1px $jd-color-border-primary;
+  background: $jd-color-bg-primary;
 }
 .jd-dropdown__trigger__text {
   @extend .jd-text-body;
@@ -33,6 +36,7 @@
   margin-top: -2px;
   padding-top: 1px;
   z-index: 10;
+  background: $jd-color-bg-primary;
 
   &.is-opened {
     display: block;

@@ -6,17 +6,19 @@
   position: relative;
 }
 .jd-field__input {
+  @extend .jd-border-radius-s;
+  @extend .jd-shadow-s;
   @extend .jd-text-body;
   display: block;
   width: 100%;
   height: $jd-control-height;
   padding: 0 .75rem;
   border: solid 1px $jd-color-border-primary;
-  background: none;
+  background: $jd-color-bg-primary;
   color: $jd-color-text-primary;
 
   &::placeholder {
-    color: $jd-color-text-secondary;
+    color: $jd-color-text-tertiary;
   }
 }
 .jd-field__icon {
@@ -27,8 +29,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .jd-icon {
+    background-color: $jd-color-text-secondary;
+  }
 }
 
+// Icon Left
 .jd-field--has-icon-left {
   .jd-field__input {
     padding-left: $jd-control-height;

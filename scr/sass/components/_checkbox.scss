@@ -14,10 +14,13 @@
   visibility: hidden;
 }
 .jd-checkbox__box {
+  @extend .jd-border-radius-xs;
+
   display: block;
   width: .9rem;
   height: .9rem;
-  border: solid 2px $jd-color-border-primary;
+  border: solid 2px $jd-color-border-secondary;
+  background: $jd-color-bg-primary;
 }
 .jd-checkbox__text {
   @extend .jd-text-body;
