@@ -16,20 +16,73 @@
 .jd-checkbox__box {
   @extend .jd-border-radius-xs;
 
+  position: relative;
   display: block;
   width: .9rem;
   height: .9rem;
   border: solid 2px $jd-color-border-secondary;
-  background: $jd-color-bg-primary;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
 }
 .jd-checkbox__text {
   @extend .jd-text-body;
+
   display: block;
   margin-left: .5rem;
 }
 
-// Checked
+/*=========================
+  Checked
+===========================*/
+
 .jd-checkbox__input:checked + .jd-checkbox__box {
   border-color: transparent;
   background-color: $jd-color-bg-accent;
+
+  &:after {
+    @extend .jd-icon;
+
+    background-color: $jd-color-bg-primary;
+    width: 85%;
+    height: 85%;
+    -webkit-mask-image: url('#{$jd-path-icons}/check.svg');
+    mask-image: url('#{$jd-path-icons}/check.svg');
+  }
+}
+
+/*=========================
+  Hover & Active
+===========================*/
+
+@media (hover: hover) {
+  .jd-checkbox__box:before {
+    width: 275%;
+    height: 275%;
+    border-radius: 50%;
+    background: $jd-color-bg-accent;
+    opacity: .15;
+    transform: translate(-50%,-50%) scale(0);
+    transition: transform .2s;
+    z-index: -1;
+  }
+
+  .jd-checkbox:hover {
+    .jd-checkbox__box:before {
+      transform: translate(-50%,-50%) scale(1);
+    }
+  }
+
+  .jd-checkbox:active {
+    .jd-checkbox__box:before {
+      opacity: .3;
+    }
+  }
 }
