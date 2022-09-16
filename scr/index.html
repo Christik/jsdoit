@@ -41,66 +41,71 @@
 
         <main class="jd-content jd-layout__content">
             <div class="jd-container">
-                <br/>
-                <br/>
-
-                <div class="jd-dropdown">
-                    <div class="jd-dropdown__trigger">
-                        <div class="jd-dropdown__trigger__text">
-                            Сначала новые
+                <div class="jd-filter-panel jd-intent-top-xl jd-intent-bottom-xl">
+                    <div class="jd-dropdown jd-filter-panel__sort">
+                        <div class="jd-dropdown__trigger">
+                            <div class="jd-dropdown__trigger__text">
+                                Сначала новые
+                            </div>
+                            <div class="jd-dropdown__trigger__arrow">
+                                <span class="jd-icon jd-icon--down jd-icon--s"></span>
+                            </div>
                         </div>
-                        <div class="jd-dropdown__trigger__arrow">
-                            <span class="jd-icon jd-icon--down jd-icon--s"></span>
+                        <div class="jd-dropdown__expand">
+                            <ul class="jd-dropdown__list">
+                                <li class="jd-dropdown__item is-active">Сначала новые</li>
+                                <li class="jd-dropdown__item">Сначала старые</li>
+                                <li class="jd-dropdown__item">Сначала популярные</li>
+                            </ul>
+                        </div>
+                    </div><!--.jd-dropdown-->
+
+                    <div class="jd-field jd-field--has-icon-left jd-filter-panel__search">
+                        <input
+                            type="text"
+                            class="jd-field__input"
+                            placeholder="Искать по названию..."
+                        >
+                        <div class="jd-field__icon">
+                            <span class="jd-icon jd-icon--search jd-icon--s"></span>
                         </div>
                     </div>
-                    <div class="jd-dropdown__expand">
-                        <ul class="jd-dropdown__list">
-                            <li class="jd-dropdown__item is-active">Сначала новые</li>
-                            <li class="jd-dropdown__item">Сначала старые</li>
-                            <li class="jd-dropdown__item">Сначала популярные</li>
-                        </ul>
-                    </div>
-                </div><!--.jd-dropdown-->
 
-                <br/>
-                <br/>
+                    <label class="jd-switcher jd-filter-panel__markup">
+                        <span class="jd-switcher__bar">
+                            <input class="jd-switcher__input" type="checkbox">
+                            <span class="jd-switcher__track"></span>
+                            <span class="jd-switcher__handle"></span>
+                        </span>
+                        <span class="jd-switcher__text">
+                            Только с готовой версткой
+                        </span>
+                    </label>
 
-                <div class="jd-field jd-field--has-icon-left">
-                    <input
-                        type="text"
-                        class="jd-field__input"
-                        placeholder="Искать..."
-                    >
-                    <div class="jd-field__icon">
-                        <span class="jd-icon jd-icon--search jd-icon--s"></span>
-                    </div>
-                </div>
-
-                <br/>
-                <br/>
-
-                <label class="jd-checkbox">
-                    <input class="jd-checkbox__input" type="checkbox">
-                    <span class="jd-checkbox__box"></span>
-                    <span class="jd-checkbox__text">Стажер</span>
-                </label>
-
-                <br/>
-                <br/>
-
-                <label class="jd-switcher">
-                    <span class="jd-switcher__bar">
-                        <input class="jd-switcher__input" type="checkbox">
-                        <span class="jd-switcher__track"></span>
-                        <span class="jd-switcher__handle"></span>
-                    </span>
-                    <span class="jd-switcher__text">
-                        Только с готовой версткой
-                    </span>
-                </label>
-
-                <br/>
-                <br/>
+                    <div class="jd-filter-panel__level">
+                        <p class="jd-text-body jd-text-color-secondary">Уровень сложности:</p>
+                        <label class="jd-checkbox">
+                            <input class="jd-checkbox__input" type="checkbox">
+                            <span class="jd-checkbox__box"></span>
+                            <span class="jd-checkbox__text">Стажер</span>
+                        </label>
+                        <label class="jd-checkbox">
+                            <input class="jd-checkbox__input" type="checkbox">
+                            <span class="jd-checkbox__box"></span>
+                            <span class="jd-checkbox__text">Джуниор</span>
+                        </label>
+                        <label class="jd-checkbox">
+                            <input class="jd-checkbox__input" type="checkbox">
+                            <span class="jd-checkbox__box"></span>
+                            <span class="jd-checkbox__text">Мидл</span>
+                        </label>
+                        <label class="jd-checkbox">
+                            <input class="jd-checkbox__input" type="checkbox">
+                            <span class="jd-checkbox__box"></span>
+                            <span class="jd-checkbox__text">Сеньор</span>
+                        </label>
+                    </div><!--.jd-filter-panel__level-->
+                </div><!--.jd-filter-panel-->
 
                 <div class="jd-grid jd-grid--3-columns">
                     <article class="jd-card">

@@ -6,8 +6,10 @@
 
 @import './tokens/shadow';
 @import './tokens/border-radius';
+@import './tokens/spacers';
 
 @import './typography/body';
+@import './typography/colors';
 
 @import './modules/icons';
 
@@ -25,3 +27,4 @@
 @import './components/switcher';
 @import './components/card';
 @import './components/pagination';
+@import './components/filter-panel';

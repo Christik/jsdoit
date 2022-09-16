@@ -1,0 +1,25 @@
+/*=========================
+  Filter Panel
+===========================*/
+
+.jd-filter-panel {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: map-get($jd-spacers, 'm');
+}
+.jd-filter-panel__seach {
+  margin-right: auto;
+}
+.jd-filter-panel__markup {
+  margin-left: auto;
+}
+.jd-filter-panel__level {
+  grid-column: span 3;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  > *:not(:first-child) {
+    margin-left: map-get($jd-spacers, 'm');
+  }
+}

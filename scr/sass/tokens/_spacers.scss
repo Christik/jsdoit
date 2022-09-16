@@ -1,0 +1,13 @@
+/*=========================
+  Spacers
+===========================*/
+
+@each $name, $space in $jd-spacers {
+  .jd-intent-top-#{$name} {
+    margin-top: $space;
+  }
+
+  .jd-intent-bottom-#{$name} {
+    margin-bottom: $space;
+  }
+}

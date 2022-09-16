@@ -20,9 +20,9 @@
 ===========================*/
 
 $jd-icons:
-  search, code, info, file-text, down,
+  'search', 'code', 'info', 'file-text', 'down',
   // social
-  telegram, github, twitter;
+  'telegram', 'github', 'twitter';
 
 @each $name in $jd-icons {
   .jd-icon--#{$name} {
@@ -36,9 +36,9 @@ $jd-icons:
 ===========================*/
 
 $jd-icon-sizes: (
-  xs: .6,
-  s: .8,
-  m: 1.2
+  'xs': .6,
+  's': .8,
+  'm': 1.2
 );
 
 @each $name, $size in $jd-icon-sizes {
