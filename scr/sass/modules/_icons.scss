@@ -22,7 +22,9 @@
 $jd-icons:
   'search', 'code', 'info', 'file-text', 'down',
   // social
-  'telegram', 'github', 'twitter';
+  'telegram', 'github', 'twitter',
+  // brands
+  'figma';
 
 @each $name in $jd-icons {
   .jd-icon--#{$name} {

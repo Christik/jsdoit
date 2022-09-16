@@ -52,3 +52,33 @@
   border-top: solid 1px $jd-color-border-primary;
   margin-top: auto;
 }
+
+/*=========================
+  Sources
+===========================*/
+
+.jd-card__sources {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  >*:not(:last-child) {
+    margin-right: map-get($jd-spacers, 'm');
+  }
+}
+
+.jd-card__source {
+  display: flex;
+  align-items: center;
+}
+.jd-card__source__icon {
+  @extend .jd-icon--s;
+  background-color: $jd-color-text-tertiary;
+  margin-right: map-get($jd-spacers, '2xs');
+}
+.jd-card__source__text {
+  @extend .jd-text-body;
+  @extend .jd-text-body--s;
+
+  color: $jd-color-text-tertiary;
+}
