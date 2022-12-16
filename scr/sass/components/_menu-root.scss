@@ -6,27 +6,38 @@
   display: flex;
   align-items: center;
 }
+
 .jd-menu-root__item {}
+
 .jd-menu-root__link {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 1rem;
+  gap: 0 .5em;
   height: $jd-header-height;
+  color: $jd-color-text-secondary;
 }
+
 .jd-menu-root__link__text {
   font-size: .7rem;
 }
-.jd-menu-root__link__icon + .jd-menu-root__link__text {
-  margin-left: .5rem;
+
+.jd-menu-root__link__icon {
+  background-color: $jd-color-text-secondary;
+  opacity: .8;
 }
 
-// Active
+/*=========================
+  Active
+===========================*/
+
 .jd-menu-root__link.is-active {
     pointer-events: none;
-    color: $jd-color-text-secondary;
+    color: $jd-color-text-accent;
 
     .jd-menu-root__link__icon {
-      background-color: $jd-color-text-secondary;
+      background-color: $jd-color-text-accent;
+      opacity: 1;
     }
 }

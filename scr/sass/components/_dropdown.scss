@@ -6,6 +6,11 @@
   position: relative;
   display: inline-flex;
 }
+
+/*=========================
+  Trigger
+===========================*/
+
 .jd-dropdown__trigger {
   @extend .jd-border-radius-s;
   @extend .jd-shadow-s;
@@ -16,10 +21,18 @@
   border: solid 1px $jd-color-border-primary;
   background: $jd-color-bg-primary;
 }
+
+.jd-dropdown__trigger__icon {
+  margin: 0 -.5rem 0 .75rem;
+  background-color: $jd-color-text-secondary;
+}
+
 .jd-dropdown__trigger__text {
   @extend .jd-text-body;
   padding: 0 .75rem;
+  color: $jd-color-text-secondary;
 }
+
 .jd-dropdown__trigger__arrow {
   display: flex;
   align-items: center;
@@ -28,6 +41,11 @@
   height: 100%;
   margin-left: -.75rem;
 }
+
+/*=========================
+  Expand
+===========================*/
+
 .jd-dropdown__expand {
   display: none;
   position: absolute;
@@ -42,10 +60,16 @@
     display: block;
   }
 }
+
+/*=========================
+  List
+===========================*/
+
 .jd-dropdown__list {
   background: $jd-color-bg-primary;
   border: solid 1px $jd-color-border-primary;
 }
+
 .jd-dropdown__item {
   @extend .jd-text-body;
   padding: .5rem .75rem;
