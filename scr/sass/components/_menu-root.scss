@@ -17,6 +17,10 @@
   gap: 0 .5em;
   height: $jd-header-height;
   color: $jd-color-text-secondary;
+
+  .jd-menu-root__item:last-child & {
+    padding-right: 0;
+  }
 }
 
 .jd-menu-root__link__text {

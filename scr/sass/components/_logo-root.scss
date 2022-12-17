@@ -8,6 +8,7 @@
   text-transform: uppercase;
   margin-left: .5rem;
 }
+
 .jd-logo-root__js {
   position: relative;
   margin-right: .2em;
@@ -19,8 +20,8 @@
     position: absolute;
     right: -.1em;
     bottom: 0;
-    width: 1.8em;
-    height: 1.8em;
+    width: 1.6em;
+    height: 1.6em;
     background: $jd-color-bg-accent-secondary;
     border-radius: .15rem;
   }
@@ -29,6 +30,7 @@
     position: relative;
   }
 }
+
 .jd-logo-root__dot {
   font-size: 150%;
   line-height: .5;

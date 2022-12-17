@@ -25,6 +25,7 @@
   grid-area: main;
   display: flex;
   gap: 0 map-get($jd-spacers, 'xl');
+  padding-bottom: map-get($jd-spacers, '2xl');
 }
 
 .jd-pet-layout__main__content {
