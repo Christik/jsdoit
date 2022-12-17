@@ -64,8 +64,9 @@
 .jd-card__footer {
   @extend .jd-text-body;
 
-  padding: 1rem;
-  border-top: solid 1px $jd-color-border-primary;
+  padding: 1rem 0;
+  margin: 0 1rem;
+  border-top: solid 2px rgba($jd-color-border-primary, .5);
   margin-top: auto;
 }
 

@@ -3,6 +3,8 @@
 ===========================*/
 
 .jd-pet-about {
+  display: flex;
+  flex-direction: column;
   padding-top: map-get($jd-spacers, 'm');
 }
 

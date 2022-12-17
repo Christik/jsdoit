@@ -17,6 +17,10 @@
   white-space: nowrap;
 }
 
+/*=========================
+  Badge Colors
+===========================*/
+
 .jd-badge--accent-secondary {
   background-color: $jd-color-bg-accent-secondary;
 }
@@ -37,4 +41,23 @@
 .jd-badge--error {
   color: $jd-color-text-primary-inverse;
   background-color: rgba($jd-color-bg-error, 100%);
+}
+
+/*=========================
+  Badge Style
+===========================*/
+
+.jd-badge--stroked {
+  color: $jd-color-text-secondary;
+  border: solid 1px $jd-color-border-primary;
+}
+
+/*=========================
+  Badge Group
+===========================*/
+
+.jd-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: map-get($jd-spacers, '2xs');
 }
