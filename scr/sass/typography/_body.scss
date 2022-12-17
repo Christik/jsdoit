@@ -6,6 +6,10 @@
   font-size: .75rem;
   line-height: 1.6;
   font-weight: 400;
+
+  p + p {
+    margin-top: 1em;
+  }
 }
 
 .jd-text-body--s {

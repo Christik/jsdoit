@@ -9,10 +9,12 @@
 @import './tokens/spacers';
 
 @import './typography/body';
+@import './typography/titles';
 @import './typography/colors';
 
 @import './modules/icons';
 @import './modules/badges';
+@import './modules/buttons';
 
 @import './layout/container';
 @import './layout/layout';
@@ -29,3 +31,7 @@
 @import './components/card';
 @import './components/pagination';
 @import './components/filter-panel';
+
+@import './pages/pet/layout';
+@import './pages/pet/about';
+@import './pages/pet/gallery';

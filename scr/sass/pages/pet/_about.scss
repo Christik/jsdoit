@@ -1,0 +1,19 @@
+/*=========================
+  Pet About
+===========================*/
+
+.jd-pet-about {
+  padding-top: map-get($jd-spacers, 'm');
+}
+
+.jd-pet-about__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: map-get($jd-spacers, 'm');
+  margin-bottom: map-get($jd-spacers, 'm');
+}
+
+.jd-pet-about__header__level {
+  transform: translateY(-32%);
+}

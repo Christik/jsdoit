@@ -3,11 +3,11 @@
 ===========================*/
 
 @each $name, $space in $jd-spacers {
-  .jd-intent-top-#{$name} {
+  .jd-spacer-top-#{$name} {
     margin-top: $space;
   }
 
-  .jd-intent-bottom-#{$name} {
+  .jd-spacer-bottom-#{$name} {
     margin-bottom: $space;
   }
 }

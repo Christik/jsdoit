@@ -16,6 +16,16 @@
 }
 
 /*=========================
+  Icon in Text
+===========================*/
+
+.jd-icon--text {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .25rem;;
+}
+
+/*=========================
   Icon Types
 ===========================*/
 
@@ -54,3 +64,10 @@ $jd-icon-sizes: (
   }
 }
 
+/*=========================
+  Icons Colors
+===========================*/
+
+.jd-icon--color-secondary {
+  background-color: $jd-color-text-secondary;
+}

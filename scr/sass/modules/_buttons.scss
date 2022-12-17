@@ -1,0 +1,39 @@
+/*=========================
+  Button
+===========================*/
+
+.jd-button {
+  @extend .jd-text-body;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: $jd-control-height;
+  padding: 0 1rem;
+  color: $jd-color-text-primary-inverse;
+  background: $jd-color-bg-accent;
+  border-radius: calc($jd-control-height / 2);
+  letter-spacing: .02em;
+  line-height: 1;
+}
+
+.jd-button--block {
+  display: flex;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.jd-button__icon {
+  width: 1rem;
+  height: 1rem;
+  background-color: $jd-color-text-primary-inverse;
+
+  &:first-child {
+    margin-right: .5rem;
+  }
+
+  &:last-child {
+    margin-left: .5rem;
+  }
+}

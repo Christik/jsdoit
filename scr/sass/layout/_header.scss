@@ -4,14 +4,18 @@
 
 .jd-header {
   @extend .jd-shadow-m;
+
   background: $jd-color-bg-primary;
 }
+
 .jd-header__in {
   height: $jd-header-height;
   display: flex;
   align-items: center;
 }
+
 .jd-header__logo {}
+
 .jd-header__menu {
   margin-left: auto;
 }
