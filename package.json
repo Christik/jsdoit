@@ -15,12 +15,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .jsx --ext .js src/"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "airbnb",
+      "plugin:react/jsx-runtime"
     ]
   },
   "browserslist": {
@@ -36,6 +39,8 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-react": "^7.31.11",
     "sass": "1.57.0"
   }
 }
