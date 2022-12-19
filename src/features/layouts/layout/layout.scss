@@ -1,0 +1,28 @@
+@import 'assets/scss/base/variables';
+
+/*=========================
+  Layout
+  =========================*/
+
+.jd-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: $jd-header-height;
+}
+
+.jd-layout__header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.jd-layout__content {
+  flex-grow: 1;
+}
+
+.jd-layout__footer {
+  margin-top: auto;
+}

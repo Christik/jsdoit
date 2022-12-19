@@ -1,0 +1,47 @@
+@import 'assets/scss/base/variables';
+
+/*=========================
+  Main Menu
+===========================*/
+
+.jd-main-menu {
+  display: flex;
+  align-items: center;
+}
+
+.jd-main-menu__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  gap: 0 .5em;
+  height: $jd-header-height;
+  color: $jd-color-text-secondary;
+
+  .jd-main-menu__item:last-child & {
+    padding-right: 0;
+  }
+}
+
+.jd-main-menu__link__text {
+  font-size: .7rem;
+}
+
+.jd-main-menu__link__icon {
+  background-color: $jd-color-text-secondary;
+  opacity: .8;
+}
+
+/*=========================
+  Active
+===========================*/
+
+.jd-main-menu__link.is-active {
+  pointer-events: none;
+  color: $jd-color-text-accent;
+
+  .jd-main-menu__link__icon {
+    background-color: $jd-color-text-accent;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,24 @@
+@import 'assets/scss/base/variables';
+@import 'assets/scss/base/reset';
+@import 'assets/scss/base/general';
+
+@import 'assets/scss/grid/grid';
+
+@import 'assets/scss/tokens/shadow';
+@import 'assets/scss/tokens/border-radius';
+@import 'assets/scss/tokens/spacers';
+
+@import 'assets/scss/typography/body';
+@import 'assets/scss/typography/titles';
+@import 'assets/scss/typography/colors';
+
+@import 'assets/scss/modules/icons';
+@import 'assets/scss/modules/badges';
+@import 'assets/scss/modules/buttons';
+
+@import 'assets/scss/layout/container';
+
+@import 'assets/scss/components/dropdown';
+@import 'assets/scss/components/field';
+@import 'assets/scss/components/checkbox';
+@import 'assets/scss/components/switcher';

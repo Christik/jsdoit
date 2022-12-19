@@ -1,0 +1,33 @@
+@import 'assets/scss/base/variables';
+@import 'assets/scss/tokens/border-radius';
+@import 'assets/scss/typography/body';
+
+/*=========================
+  Pagination
+===========================*/
+
+.jd-pagination__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.jd-pagination__item {
+  margin: .5rem;
+}
+.jd-pagination__link,
+.jd-pagination__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  height: $jd-control-height-s;
+}
+.jd-pagination__link {
+  @extend .jd-border-radius-s;
+  @extend .jd-text-body;
+
+  font-weight: 500;
+  border: solid 1px $jd-color-border-primary;
+  min-width: $jd-control-height-s;
+  padding: 0 .5rem;
+}
