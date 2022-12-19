@@ -1,41 +1,60 @@
 import './pet-card.scss';
 
-function PetCard() {
+import { generatePath, Link } from 'react-router-dom';
+
+import { AppRoute } from 'constants';
+
+function PetCard({ pet }) {
+  const {
+    title, description, level, tags, img,
+  } = pet;
+
   return (
     <article className="jd-card">
       <div className="jd-card__cover">
-        <img
-          className="jd-card__cover__img"
-          src="https://via.placeholder.com/300x200/ffffff/64748b"
-          width="300"
-          height="200"
-          alt=""
-        />
+        <Link
+          className="jd-card__cover__link"
+          to={generatePath(AppRoute.PET, { id: 1 })}
+        >
+          <img
+            className="jd-card__cover__img"
+            src={img}
+            width="300"
+            height="200"
+            alt={title}
+          />
+        </Link>
       </div>
 
       <div className="jd-card__body">
         <div className="jd-card__head">
-          <p className="jd-card__title">Виселица</p>
+          <p className="jd-card__title">
+            {title}
+          </p>
 
-          <p className="jd-badge jd-badge--accent jd-card__level">Стажер</p>
+          <p className="jd-badge jd-badge--accent jd-card__level">
+            {level}
+          </p>
+
+          {/* <p className="jd-badge jd-badge--accent jd-card__level">Стажер</p> */}
           {/* <p className="jd-badge jd-badge--success jd-card__level">Джуниор</p> */}
           {/* <p className="jd-badge jd-badge--accent-secondary jd-card__level">Мидл</p> */}
           {/* <p className="jd-badge jd-badge--error jd-card__level">Сеньор</p> */}
         </div>
 
         <p className="jd-card__description">
-          Реализовать игру «Виселица», в которой нужно угадать скрытое слово.
-          При каждом неверном ответе появляется одна из частей тела висельника.
-          Пользователь проиграл, если висельник появился полностью.
+          {description}
         </p>
 
         <ul className="jd-badge-group jd-spacer-top-s">
-          <li className="jd-badge jd-badge--stroked">
-            асинхронность
-          </li>
-          <li className="jd-badge jd-badge--stroked">
-            стороннее API
-          </li>
+          {tags.map((tag) => (
+            <li
+              key={tag}
+              className="jd-badge jd-badge--stroked"
+            >
+              {tag}
+            </li>
+          ))}
         </ul>
       </div>
 
