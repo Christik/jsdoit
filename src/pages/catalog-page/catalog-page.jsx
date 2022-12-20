@@ -7,22 +7,22 @@ import { Filter, PetCard } from 'features/catalog';
 function CatalogPage() {
   const [pets, setPets] = useState([]);
 
+  // TODO: переместить список проектов в глобальный state
+
   useEffect(() => {
     let isMounted = true;
 
     const fetchData = async () => {
-      const petList = await getPetList();
+      const data = await getPetList();
 
       if (isMounted) {
-        setPets(petList);
+        setPets(data);
       }
     };
 
     fetchData();
 
-    return () => {
-      isMounted = false;
-    };
+    return () => { isMounted = false; };
   }, []);
 
   return (
@@ -31,10 +31,7 @@ function CatalogPage() {
 
       <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
         {pets.map((pet) => (
-          <PetCard
-            key={pet.id}
-            pet={pet}
-          />
+          <PetCard key={pet.id} pet={pet} />
         ))}
       </div>
     </div>

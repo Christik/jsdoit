@@ -1,10 +1,15 @@
-const NOTION_URL = 'https://notion-api.splitbee.io/v1/table';
+const NOTION_URL = 'https://notion-api.splitbee.io/v1/';
+
+const NotionApiType = {
+  TABLE: 'table',
+  PAGE: 'page',
+};
 
 // TODO: добавить вывод ошибок
 
-const getDataFromNotion = async (dbId) => {
+const getDataFromNotion = async (dbId, type = NotionApiType.TABLE) => {
   try {
-    const response = await fetch(`${NOTION_URL}/${dbId}`);
+    const response = await fetch(`${NOTION_URL}/${type}/${dbId}`);
     const data = await response.json();
 
     return data;

@@ -4,6 +4,8 @@ import { generatePath, Link } from 'react-router-dom';
 
 import { AppRoute } from 'constants';
 
+import { Level } from 'features/pet';
+
 function PetCard({ pet }) {
   const {
     title, description, level, tags, img,
@@ -32,14 +34,7 @@ function PetCard({ pet }) {
             {title}
           </p>
 
-          <p className="jd-badge jd-badge--accent jd-card__level">
-            {level}
-          </p>
-
-          {/* <p className="jd-badge jd-badge--accent jd-card__level">Стажер</p> */}
-          {/* <p className="jd-badge jd-badge--success jd-card__level">Джуниор</p> */}
-          {/* <p className="jd-badge jd-badge--accent-secondary jd-card__level">Мидл</p> */}
-          {/* <p className="jd-badge jd-badge--error jd-card__level">Сеньор</p> */}
+          <Level level={level} />
         </div>
 
         <p className="jd-card__description">
