@@ -1,9 +1,6 @@
-const NOTION_URL = 'https://notion-api.splitbee.io/v1/';
+import { NotionApiType } from 'constants';
 
-const NotionApiType = {
-  TABLE: 'table',
-  PAGE: 'page',
-};
+const NOTION_URL = 'https://notion-api.splitbee.io/v1/';
 
 // TODO: добавить вывод ошибок
 

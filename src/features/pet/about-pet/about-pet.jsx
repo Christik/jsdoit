@@ -2,28 +2,34 @@ import './about-pet.scss';
 
 import classnames from 'classnames';
 
-function AboutPet({ className }) {
+import { Level } from 'features/pet';
+import { TagGroup } from 'features/ui';
+
+function AboutPet(props) {
+  const {
+    className,
+    pet: {
+      title, description, level, tags,
+    },
+  } = props;
+
   return (
     <div className={classnames('jd-pet-about', className)}>
       <div className="jd-pet-about__header">
         <h1 className="jd-text-title">
-          Конвертер валют
+          {title}
         </h1>
 
-        <div className="jd-badge jd-badge--success jd-pet-about__header__level">
-          Джуниор
-        </div>
+        <Level level={level} />
       </div>
 
       <div className="jd-text-body jd-text-color-secondary">
         <p>
-          Реализовать простой конвертер валют с помощью ExchangeRate-API
-          или любого другого стороннего api.
-          Реализовать простой конвертер валют с помощью ExchangeRate-API
-          или любого другого стороннего api.
+          {description}
         </p>
       </div>
 
+      {/* TODO: отрефакторить данные о ресурсах и обновить рендер */}
       <br />
       <br />
       <p className="jd-text-title jd-text-title--h3 jd-spacer-bottom-m">
@@ -40,23 +46,7 @@ function AboutPet({ className }) {
         </li>
       </ul>
 
-      <ul className="jd-badge-group">
-        <li className="jd-badge jd-badge--stroked">
-          игра
-        </li>
-        <li className="jd-badge jd-badge--stroked">
-          асинхронность
-        </li>
-        <li className="jd-badge jd-badge--stroked">
-          DOM
-        </li>
-        <li className="jd-badge jd-badge--stroked">
-          HTML/CSS
-        </li>
-        <li className="jd-badge jd-badge--stroked">
-          стороннее API
-        </li>
-      </ul>
+      <TagGroup tags={tags} />
     </div>
   );
 }

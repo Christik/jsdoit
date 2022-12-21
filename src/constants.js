@@ -3,9 +3,7 @@ export const AppRoute = {
   PET: '/pet/:id',
 };
 
-export const Level = {
-  TRAINEE: 'trainee',
-  JUNIOR: 'junior',
-  MIDDLE: 'middle',
-  SENIOR: 'senior',
+export const NotionApiType = {
+  TABLE: 'table',
+  PAGE: 'page',
 };
