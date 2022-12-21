@@ -1,2 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
-export { default as getPetList } from './pet-list';
+export { default as getPetList } from './pet-list/pet-list';
+export { default as getLevels } from './levels/levels';
+export { default as getResources } from './resources/resources';

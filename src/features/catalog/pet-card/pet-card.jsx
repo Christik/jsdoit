@@ -5,10 +5,11 @@ import { generatePath, Link } from 'react-router-dom';
 import { AppRoute } from 'constants';
 
 import { Level } from 'features/pet';
+import { PetCardResourceList } from 'features/catalog';
 
 function PetCard({ pet }) {
   const {
-    title, description, level, tags, img,
+    title, description, level, tags, img, resources,
   } = pet;
 
   return (
@@ -53,18 +54,11 @@ function PetCard({ pet }) {
         </ul>
       </div>
 
-      <div className="jd-card__footer">
-        <ul className="jd-card__sources">
-          <li className="jd-card__source">
-            <span className="jd-icon jd-icon--figma jd-card__source__icon" />
-            <span className="jd-card__source__text">макет в Figma</span>
-          </li>
-          <li className="jd-card__source">
-            <span className="jd-icon jd-icon--code jd-card__source__icon" />
-            <span className="jd-card__source__text">готовая верстка</span>
-          </li>
-        </ul>
-      </div>
+      {resources && (
+        <div className="jd-card__footer">
+          <PetCardResourceList resourceIds={resources} />
+        </div>
+      )}
     </article>
   );
 }

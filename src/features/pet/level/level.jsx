@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
-import getLevels from 'store/levels';
+import { getLevels } from 'store';
 
 const levelClassNames = [
   'jd-badge--accent',
