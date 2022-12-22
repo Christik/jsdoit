@@ -1,5 +1,5 @@
-import getDataFromNotion from 'services/notion-api';
-import getPetList from 'store/pet-list/pet-list';
+import { getDataFromNotion } from 'services';
+import { getPetList } from 'store';
 
 const DB_ID = '06fd5618a9bb43269728d40621c0d714';
 

@@ -1,4 +1,4 @@
-import getDataFromNotion from 'services/notion-api';
+import { getDataFromNotion } from 'services';
 
 const DB_ID = 'bd0e9c2f5c3a494eb14f37e7adc482b1';
 
