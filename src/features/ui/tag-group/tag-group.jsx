@@ -1,4 +1,8 @@
+import './tag-group.scss';
+
 import classnames from 'classnames';
+
+import { Tag } from 'features/ui';
 
 function TagGroup(props) {
   const { className, tags } = props;
@@ -8,14 +12,11 @@ function TagGroup(props) {
   }
 
   return (
-    <ul className={classnames('jd-badge-group', className)}>
+    <ul className={classnames('jd-tag-group', className)}>
       {tags.map((tag) => (
-        <li
-          key={tag}
-          className="jd-badge jd-badge--stroked"
-        >
+        <Tag key={tag} tag="li">
           {tag}
-        </li>
+        </Tag>
       ))}
     </ul>
   );

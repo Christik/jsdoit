@@ -6,6 +6,7 @@ import { AppRoute } from 'constants';
 
 import { Level } from 'features/pet';
 import { PetCardResourceList } from 'features/catalog';
+import { TagGroup } from 'features/ui';
 
 function PetCard({ pet }) {
   const {
@@ -42,16 +43,10 @@ function PetCard({ pet }) {
           {description}
         </p>
 
-        <ul className="jd-badge-group jd-spacer-top-s">
-          {tags.map((tag) => (
-            <li
-              key={tag}
-              className="jd-badge jd-badge--stroked"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <TagGroup
+          className="jd-spacer-top-s"
+          tags={tags}
+        />
       </div>
 
       {resources && (

@@ -1,0 +1,11 @@
+@import 'assets/scss/base/variables';
+
+/*=========================
+  Tag Group
+===========================*/
+
+.jd-tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: map-get($jd-spacers, '2xs');
+}

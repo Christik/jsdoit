@@ -1,23 +1,28 @@
-import classnames from 'classnames';
+import { Tag, TagStyle } from 'features/ui';
 
-const levelClassName = {
-  trainee: 'jd-badge--accent',
-  junior: 'jd-badge--success',
-  middle: 'jd-badge--accent-secondary',
-  senior: 'jd-badge--error',
+const LevelValue = {
+  TRAINEE: 'trainee',
+  JUNIOR: 'junior',
+  MIDDLE: 'middle',
+  SENIOR: 'senior',
+};
+
+const LevelStyle = {
+  [LevelValue.TRAINEE]: TagStyle.ACCENT,
+  [LevelValue.JUNIOR]: TagStyle.SUCCESS,
+  [LevelValue.MIDDLE]: TagStyle.ACCENT_SECONDARY,
+  [LevelValue.SENIOR]: TagStyle.ERROR,
 };
 
 function Level({ level }) {
   return (
-    <p
-      className={classnames(
-        'jd-badge',
-        levelClassName[level.value],
-        'jd-card__level',
-      )}
+    <Tag
+      className="jd-card__level"
+      style={LevelStyle[level.value]}
+      tag="p"
     >
       {level.label}
-    </p>
+    </Tag>
   );
 }
 
