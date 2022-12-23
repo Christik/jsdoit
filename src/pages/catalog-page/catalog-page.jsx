@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 
 import { getPetList } from 'store';
 
+import { PageLoader } from 'features/ui';
 import { Filter, PetCard } from 'features/catalog';
 
 function CatalogPage() {
-  const [pets, setPets] = useState([]);
+  const [pets, setPets] = useState(null);
 
   // TODO: переместить список проектов в глобальный state
 
@@ -24,6 +25,12 @@ function CatalogPage() {
 
     return () => { isMounted = false; };
   }, []);
+
+  if (pets === null) {
+    return (
+      <PageLoader />
+    );
+  }
 
   return (
     <div className="jd-container">
