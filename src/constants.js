@@ -1,6 +1,6 @@
 export const AppRoute = {
   CATALOG: '/',
-  PET: '/pet/:id',
+  PET: '/pet/:slug',
 };
 
 export const NotionApiType = {

@@ -1,6 +1,7 @@
 import './pet-page.scss';
 
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { getPetBySlug } from 'store';
 
@@ -11,10 +12,9 @@ import {
   Specification,
 } from 'features/pet';
 
-const SLUG = 'viselica';
-
 function PetPage() {
   const [pet, setPet] = useState(null);
+  const { slug } = useParams();
 
   // TODO: перенести pet в глобальный state
 
@@ -22,7 +22,7 @@ function PetPage() {
     let isMounted = true;
 
     const fetchData = async () => {
-      const data = await getPetBySlug(SLUG);
+      const data = await getPetBySlug(slug);
 
       if (isMounted) {
         setPet(data);
@@ -32,7 +32,7 @@ function PetPage() {
     fetchData();
 
     return () => { isMounted = false; };
-  }, []);
+  }, [slug]);
 
   if (pet === null) {
     return (

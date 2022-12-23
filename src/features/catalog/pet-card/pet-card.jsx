@@ -9,7 +9,7 @@ import { PetCardResourceList } from 'features/catalog';
 
 function PetCard({ pet }) {
   const {
-    title, description, level, tags, img, resources,
+    title, description, level, tags, img, resources, slug,
   } = pet;
 
   return (
@@ -17,7 +17,7 @@ function PetCard({ pet }) {
       <div className="jd-card__cover">
         <Link
           className="jd-card__cover__link"
-          to={generatePath(AppRoute.PET, { id: 1 })}
+          to={generatePath(AppRoute.PET, { slug })}
         >
           <img
             className="jd-card__cover__img"
