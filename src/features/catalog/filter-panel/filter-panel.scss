@@ -1,4 +1,6 @@
 @import 'assets/scss/base/variables';
+@import 'assets/scss/typography/body';
+@import 'assets/scss/typography/colors';
 
 /*=========================
   Filter Panel
@@ -16,11 +18,19 @@
 
 .jd-filter-panel__level {
   grid-column: span 3;
+}
 
+/*=========================
+  Filter Level
+===========================*/
+
+.jd-filter-by-level {
   display: flex;
   flex-wrap: wrap;
+  gap: 0 map-get($jd-spacers, 'm');
+}
 
-  > *:not(:first-child) {
-    margin-left: map-get($jd-spacers, 'm');
-  }
+.jd-filter-by-level__label {
+  @extend .jd-text-body;
+  @extend .jd-text-color-secondary;
 }

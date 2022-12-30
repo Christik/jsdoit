@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getPetList } from 'store';
 
 import { PageLoader } from 'features/ui';
-import { Filter, PetCard } from 'features/catalog';
+import { FilterPanel, PetCard } from 'features/catalog';
 
 function CatalogPage() {
   const [pets, setPets] = useState(null);
@@ -34,7 +34,7 @@ function CatalogPage() {
 
   return (
     <div className="jd-container">
-      <Filter />
+      <FilterPanel />
 
       <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
         {pets.map((pet) => (

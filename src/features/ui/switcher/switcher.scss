@@ -1,3 +1,7 @@
+@import 'assets/scss/base/variables';
+@import 'assets/scss/tokens/shadow';
+@import 'assets/scss/typography/body';
+
 /*=========================
   Switcher
 ===========================*/
@@ -9,12 +13,14 @@ $jd-switcher-duration: .2s;
   align-items: center;
   cursor: pointer;
 }
+
 .jd-switcher__bar {
   display: block;
   position: relative;
   height: 1rem;
   width: 1.8rem;
 }
+
 .jd-switcher__input {
   position: absolute;
   pointer-events: none;
@@ -33,6 +39,7 @@ $jd-switcher-duration: .2s;
   background-color: $jd-color-text-tertiary;
   transition: background-color $jd-switcher-duration;
 }
+
 .jd-switcher__handle {
   @extend .jd-shadow-xs;
 
@@ -51,22 +58,31 @@ $jd-switcher-duration: .2s;
     transform $jd-switcher-duration,
     background-color $jd-switcher-duration;
 }
+
 .jd-switcher__text {
   @extend .jd-text-body;
 
   margin-left: .5em;
 }
 
-// Checked
+/*=========================
+  Checked
+===========================*/
+
 .jd-switcher__input:checked + .jd-switcher__track {
   background-color: rgba($jd-color-bg-accent, 35%);
 }
+
 .jd-switcher__input:checked + .jd-switcher__track + .jd-switcher__handle {
   left: 100%;
   transform: translate(-100%, -50%);
   border-color: transparent;
   background-color: $jd-color-bg-accent;
 }
+
+/*=========================
+  Hover
+===========================*/
 
 @media (hover: hover) {
   .jd-switcher__handle:before {
