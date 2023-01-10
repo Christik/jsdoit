@@ -9,7 +9,7 @@
 
 .jd-dropdown {
   position: relative;
-  display: inline-flex;
+  display: flex;
 }
 
 /*=========================
@@ -23,9 +23,15 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  width: 100%;
   height: $jd-control-height;
   border: solid 1px $jd-color-border-primary;
   background: $jd-color-bg-primary;
+
+  &--is-opened {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 .jd-dropdown__trigger__icon {
@@ -37,6 +43,7 @@
   @extend .jd-text-body;
 
   padding: 0 .75rem;
+  margin-right: -.75rem;
   color: $jd-color-text-secondary;
 }
 
@@ -46,7 +53,11 @@
   justify-content: center;
   width: $jd-control-height;
   height: 100%;
-  margin-left: -.75rem;
+  margin-left: auto;
+
+  .jd-dropdown__trigger--is-opened & {
+    transform: scaleY(-1);
+  }
 }
 
 /*=========================
@@ -54,7 +65,6 @@
 ===========================*/
 
 .jd-dropdown__expand {
-  display: none;
   position: absolute;
   left: 0;
   top: 100%;
@@ -63,10 +73,6 @@
   padding-top: 1px;
   z-index: 10;
   background: $jd-color-bg-primary;
-
-  &--opened {
-    display: block;
-  }
 }
 
 /*=========================
@@ -74,6 +80,10 @@
 ===========================*/
 
 .jd-dropdown__list {
+  @extend .jd-border-radius-s;
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   background: $jd-color-bg-primary;
   border: solid 1px $jd-color-border-primary;
 }
@@ -89,8 +99,18 @@
     border-top: solid 1px $jd-color-border-primary;
   }
 
+  &:last-child {
+    border-radius: inherit;
+  }
+
   &--active {
     background-color: $jd-color-bg-substrate;
     color: $jd-color-text-secondary;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $jd-color-text-accent;
+    }
   }
 }

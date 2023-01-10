@@ -12,6 +12,10 @@
   gap: map-get($jd-spacers, 'm');
 }
 
+.jd-filter-panel__sort {
+  width: 11rem;
+}
+
 .jd-filter-panel__markup {
   margin-left: auto;
 }

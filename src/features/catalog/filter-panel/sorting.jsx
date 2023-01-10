@@ -11,7 +11,7 @@ const list = [
   },
   {
     value: 'popularity-desc',
-    label: 'Сначала популярные',
+    label: 'Популярные',
   },
 ];
 
@@ -21,7 +21,6 @@ function Sorting() {
       className="jd-filter-panel__sort"
       icon={IconName.SORT_DESC}
       list={list}
-      activeItem={list[0]}
     />
   );
 }
