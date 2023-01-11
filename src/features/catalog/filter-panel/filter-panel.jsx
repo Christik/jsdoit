@@ -4,10 +4,12 @@ import {
   FilterByLevel, FilterByMarkup, Search, Sorting,
 } from 'features/catalog';
 
-function FilterPanel() {
+function FilterPanel(props) {
+  const { onPetsSort } = props;
+
   return (
     <div className="jd-filter-panel jd-spacer-top-xl jd-spacer-bottom-xl">
-      <Sorting />
+      <Sorting onSort={onPetsSort} />
       <Search />
       <FilterByMarkup />
       <FilterByLevel />

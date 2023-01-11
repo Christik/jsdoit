@@ -9,10 +9,12 @@ import classnames from 'classnames';
 import { Icon, IconName, IconSize } from 'features/ui';
 
 function Dropdown(props) {
-  const { className, icon, list } = props;
+  const {
+    className, icon, list, onSelect, defaultItem,
+  } = props;
 
   const [isOpened, setIsOpened] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(list[0]);
+  const [selectedItem, setSelectedItem] = useState(defaultItem || list[0]);
 
   const onTriggerClick = () => {
     setIsOpened((prevStatus) => !prevStatus);
@@ -21,6 +23,7 @@ function Dropdown(props) {
   const onItemClick = (item) => () => {
     setSelectedItem(item);
     setIsOpened(false);
+    onSelect(item.value);
   };
 
   return (

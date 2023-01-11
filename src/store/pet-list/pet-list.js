@@ -8,11 +8,12 @@ const getPetList = async () => {
   const levels = await getLevels();
 
   return petList.map((pet) => {
-    const { level: levelIds } = pet;
+    const { level: levelIds, createdDate } = pet;
     const currentLevel = levels.find((item) => item.id === levelIds[0]);
 
     return {
       ...pet,
+      createdDate: new Date(createdDate),
       level: currentLevel,
     };
   });

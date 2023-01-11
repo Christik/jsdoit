@@ -10,7 +10,7 @@ import { TagGroup } from 'features/ui';
 
 function PetCard({ pet }) {
   const {
-    title, description, level, tags, img, resources, slug,
+    title, description, level, tags, img, resources, slug, createdDate,
   } = pet;
 
   return (
@@ -41,6 +41,14 @@ function PetCard({ pet }) {
 
         <p className="jd-card__description">
           {description}
+        </p>
+
+        {/* TODO: удалить отображение даты */}
+        <p className="jd-card__description">
+          <br />
+          Дата создания:
+          {' '}
+          {createdDate.toDateString()}
         </p>
 
         <TagGroup
