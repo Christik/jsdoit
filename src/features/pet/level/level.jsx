@@ -1,17 +1,11 @@
+import { LevelValue } from 'constants';
 import { Tag, TagStyle } from 'features/ui';
 
-const LevelValue = {
-  TRAINEE: 'trainee',
-  JUNIOR: 'junior',
-  MIDDLE: 'middle',
-  SENIOR: 'senior',
-};
-
 const LevelStyle = {
-  [LevelValue.TRAINEE]: TagStyle.ACCENT,
-  [LevelValue.JUNIOR]: TagStyle.SUCCESS,
-  [LevelValue.MIDDLE]: TagStyle.ACCENT_SECONDARY,
-  [LevelValue.SENIOR]: TagStyle.ERROR,
+  [LevelValue.EASY]: TagStyle.ACCENT,
+  [LevelValue.NORMAL]: TagStyle.SUCCESS,
+  [LevelValue.HARD]: TagStyle.ACCENT_SECONDARY,
+  [LevelValue.EXTRA_HARD]: TagStyle.ERROR,
 };
 
 function Level({ level }) {

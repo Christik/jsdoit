@@ -5,14 +5,14 @@ import {
 } from 'features/catalog';
 
 function FilterPanel(props) {
-  const { onPetsSort } = props;
+  const { onPetsSort, onLevelChange } = props;
 
   return (
     <div className="jd-filter-panel jd-spacer-top-xl jd-spacer-bottom-xl">
       <Sorting onSort={onPetsSort} />
       <Search />
       <FilterByMarkup />
-      <FilterByLevel />
+      <FilterByLevel onLevelChange={onLevelChange} />
     </div>
   );
 }

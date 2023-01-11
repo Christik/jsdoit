@@ -1,35 +1,27 @@
+import { LevelLabel, LevelValue } from 'constants';
 import { Checkbox } from 'features/ui';
 
-const levels = [
-  {
-    value: 'trainee',
-    label: 'Стажер',
-  },
-  {
-    value: 'junior',
-    label: 'Джуниор',
-  },
-  {
-    value: 'middle',
-    label: 'Мидл',
-  },
-  {
-    value: 'senior',
-    label: 'Сеньор',
-  },
-];
+const levels = Object.values(LevelValue).map((value) => ({
+  value,
+  label: LevelLabel[value],
+  isChecked: false,
+}));
 
-function FilterByLevel() {
+function FilterByLevel({ onLevelChange }) {
   return (
     <div className="jd-filter-by-level jd-filter-panel__level">
       <p className="jd-filter-by-level__label">Уровень сложности:</p>
 
-      { levels.map((level) => (
-        <Checkbox
-          value={level.value}
-          label={level.label}
-        />
-      )) }
+      {
+        levels.map(({ value, label }) => (
+          <Checkbox
+            key={value}
+            value={value}
+            label={label}
+            onChange={onLevelChange}
+          />
+        ))
+      }
     </div>
   );
 }

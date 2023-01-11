@@ -25,3 +25,23 @@ export const SortLabel = {
 };
 
 export const DEFAULT_SORTING = SortValue.NEWNESS_DESC;
+
+/* ==============================
+  Difficulty Levels
+  =============================== */
+
+// TODO: брать уровни сложности с сервера
+
+export const LevelValue = {
+  EASY: 'easy',
+  NORMAL: 'normal',
+  HARD: 'hard',
+  EXTRA_HARD: 'extra-hard',
+};
+
+export const LevelLabel = {
+  [LevelValue.EASY]: 'Стажер',
+  [LevelValue.NORMAL]: 'Джуниор',
+  [LevelValue.HARD]: 'Мидл',
+  [LevelValue.EXTRA_HARD]: 'Сеньор',
+};

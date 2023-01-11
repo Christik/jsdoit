@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 function Checkbox(props) {
   const {
-    className, value, label, checked,
+    className, value, label, checked, onChange,
   } = props;
 
   return (
@@ -16,7 +16,9 @@ function Checkbox(props) {
         className="jd-checkbox__input"
         type="checkbox"
         id={`check-${value}`}
+        value={value}
         checked={checked}
+        onChange={({ target }) => onChange(target.value, target.checked)}
       />
       <span className="jd-checkbox__box" />
       <span className="jd-checkbox__text">{label}</span>

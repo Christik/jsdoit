@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react';
 
-import { SortValue, DEFAULT_SORTING } from 'constants';
+import { SortValue, DEFAULT_SORTING, LevelValue } from 'constants';
 import { getPetList } from 'store';
 
 import { PageLoader } from 'features/ui';
 import { FilterPanel, PetCard } from 'features/catalog';
 
+const allLevels = Object.values(LevelValue);
+
+// TODO: реализовать одновременную работу сортировки и фильтрации
+
 function CatalogPage() {
   const [pets, setPets] = useState(null);
   const [visiblePets, setVisiblePets] = useState(null);
+
+  const [currentLevels, setCurrentLevels] = useState([]);
 
   const onPetsSort = (value) => {
     switch (value) {
@@ -31,6 +37,24 @@ function CatalogPage() {
       default:
         break;
     }
+  };
+
+  const onLevelChange = (changedLevel, isChecked) => {
+    setCurrentLevels((prevState) => allLevels.filter((level) => {
+      const isLevelChanged = (level === changedLevel);
+      return (isLevelChanged ? isChecked : prevState.includes(level));
+    }));
+  };
+
+  const filterByLevel = () => {
+    if (currentLevels.length === 0) {
+      setVisiblePets(pets);
+      return;
+    }
+
+    setVisiblePets(
+      [...pets].filter(({ level }) => currentLevels.includes(level.value)),
+    );
   };
 
   // TODO: переместить список проектов в глобальный state
@@ -62,6 +86,16 @@ function CatalogPage() {
     return () => { isMounted = false; };
   }, [pets]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    if (isMounted && pets !== null) {
+      filterByLevel();
+    }
+
+    return () => { isMounted = false; };
+  }, [currentLevels]);
+
   if (pets === null) {
     return (
       <PageLoader />
@@ -72,6 +106,7 @@ function CatalogPage() {
     <div className="jd-container">
       <FilterPanel
         onPetsSort={onPetsSort}
+        onLevelChange={onLevelChange}
       />
 
       <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
