@@ -5,13 +5,13 @@ import {
 } from 'features/catalog';
 
 function FilterPanel(props) {
-  const { onSort, onLevelChange } = props;
+  const { onSort, onMarkupChange, onLevelChange } = props;
 
   return (
     <div className="jd-filter-panel jd-spacer-top-xl jd-spacer-bottom-xl">
       <Sorting onSort={onSort} />
       <Search />
-      <FilterByMarkup />
+      <FilterByMarkup onMarkupChange={onMarkupChange} />
       <FilterByLevel onLevelChange={onLevelChange} />
     </div>
   );

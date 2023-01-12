@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 function Switcher(props) {
   const {
-    className, id, label, checked,
+    className, id, label, checked, onChange,
   } = props;
 
   return (
@@ -18,6 +18,7 @@ function Switcher(props) {
           type="checkbox"
           id={id}
           checked={checked}
+          onChange={({ target }) => onChange(target.checked)}
         />
         <span className="jd-switcher__track" />
         <span className="jd-switcher__handle" />

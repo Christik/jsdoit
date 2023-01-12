@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { SortValue, DEFAULT_SORTING, LevelValue } from 'constants';
-import { getPetList } from 'store';
+import { getPetList, getResources } from 'store';
 
 import { PageLoader } from 'features/ui';
 import { FilterPanel, PetCard } from 'features/catalog';
@@ -31,15 +31,33 @@ const filterByLevel = (items, levels) => {
   return items.filter(({ level: { value } }) => levels.includes(value));
 };
 
+const filterByMarkup = (items, isChecked, resourceList) => {
+  if (!isChecked) {
+    return items;
+  }
+
+  // TODO: отрефакторить (магическое значение)
+  const { id } = resourceList.find(({ value }) => (value === 'markup'));
+
+  return items.filter(({ resources }) => resources?.includes(id));
+};
+
 function CatalogPage() {
   const [pets, setPets] = useState(null);
   const [visiblePets, setVisiblePets] = useState(null);
 
+  const [resourceList, setResourceList] = useState(null);
+
   const [selectedSorting, setSelectedSorting] = useState(DEFAULT_SORTING);
+  const [isMarkupPrepared, setIsMarkupPrepared] = useState(false);
   const [selectedLevels, setSelectedLevels] = useState([]);
 
   const onSortingChange = (value) => {
     setSelectedSorting(value);
+  };
+
+  const onMarkupChange = (isChecked) => {
+    setIsMarkupPrepared(isChecked);
   };
 
   const onLevelChange = (changedLevel, isChecked) => {
@@ -55,10 +73,12 @@ function CatalogPage() {
     let isMounted = true;
 
     const fetchData = async () => {
-      const data = await getPetList();
+      const petList = await getPetList();
+      const resources = await getResources();
 
       if (isMounted) {
-        setPets(data);
+        setPets(petList);
+        setResourceList(resources);
       }
     };
 
@@ -73,6 +93,7 @@ function CatalogPage() {
     if (isMounted && pets !== null) {
       let updatedPets = [...pets];
 
+      updatedPets = filterByMarkup(updatedPets, isMarkupPrepared, resourceList);
       updatedPets = filterByLevel(updatedPets, selectedLevels);
       updatedPets = sort(updatedPets, selectedSorting);
 
@@ -80,7 +101,7 @@ function CatalogPage() {
     }
 
     return () => { isMounted = false; };
-  }, [pets, selectedLevels, selectedSorting]);
+  }, [pets, resourceList, isMarkupPrepared, selectedLevels, selectedSorting]);
 
   if (visiblePets === null) {
     return (
@@ -92,6 +113,7 @@ function CatalogPage() {
     <div className="jd-container">
       <FilterPanel
         onSort={onSortingChange}
+        onMarkupChange={onMarkupChange}
         onLevelChange={onLevelChange}
       />
 
