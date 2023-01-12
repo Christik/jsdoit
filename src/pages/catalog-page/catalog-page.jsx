@@ -6,55 +6,47 @@ import { getPetList } from 'store';
 import { PageLoader } from 'features/ui';
 import { FilterPanel, PetCard } from 'features/catalog';
 
-const allLevels = Object.values(LevelValue);
+const sort = (items, sortType) => {
+  switch (sortType) {
+    case SortValue.NEWNESS_DESC:
+      return items.sort((currentItem, nextItem) => (
+        Date.parse(nextItem.createdDate) - Date.parse(currentItem.createdDate)
+      ));
 
-// TODO: реализовать одновременную работу сортировки и фильтрации
+    case SortValue.NEWNESS_ASC:
+      return items.sort((currentItem, nextItem) => (
+        Date.parse(currentItem.createdDate) - Date.parse(nextItem.createdDate)
+      ));
+
+    default:
+      return items;
+  }
+};
+
+const filterByLevel = (items, levels) => {
+  if (levels.length === 0) {
+    return items;
+  }
+
+  return items.filter(({ level: { value } }) => levels.includes(value));
+};
 
 function CatalogPage() {
   const [pets, setPets] = useState(null);
   const [visiblePets, setVisiblePets] = useState(null);
 
-  const [currentLevels, setCurrentLevels] = useState([]);
+  const [selectedSorting, setSelectedSorting] = useState(DEFAULT_SORTING);
+  const [selectedLevels, setSelectedLevels] = useState([]);
 
-  const onPetsSort = (value) => {
-    switch (value) {
-      case SortValue.NEWNESS_DESC:
-        setVisiblePets(
-          [...pets].sort((currentPet, nextPet) => (
-            Date.parse(nextPet.createdDate) - Date.parse(currentPet.createdDate)
-          )),
-        );
-        break;
-
-      case SortValue.NEWNESS_ASC:
-        setVisiblePets(
-          [...pets].sort((currentPet, nextPet) => (
-            Date.parse(currentPet.createdDate) - Date.parse(nextPet.createdDate)
-          )),
-        );
-        break;
-
-      default:
-        break;
-    }
+  const onSortingChange = (value) => {
+    setSelectedSorting(value);
   };
 
   const onLevelChange = (changedLevel, isChecked) => {
-    setCurrentLevels((prevState) => allLevels.filter((level) => {
+    setSelectedLevels((prevState) => Object.values(LevelValue).filter((level) => {
       const isLevelChanged = (level === changedLevel);
       return (isLevelChanged ? isChecked : prevState.includes(level));
     }));
-  };
-
-  const filterByLevel = () => {
-    if (currentLevels.length === 0) {
-      setVisiblePets(pets);
-      return;
-    }
-
-    setVisiblePets(
-      [...pets].filter(({ level }) => currentLevels.includes(level.value)),
-    );
   };
 
   // TODO: переместить список проектов в глобальный state
@@ -67,7 +59,6 @@ function CatalogPage() {
 
       if (isMounted) {
         setPets(data);
-        setVisiblePets(data);
       }
     };
 
@@ -80,23 +71,18 @@ function CatalogPage() {
     let isMounted = true;
 
     if (isMounted && pets !== null) {
-      onPetsSort(DEFAULT_SORTING);
+      let updatedPets = [...pets];
+
+      updatedPets = filterByLevel(updatedPets, selectedLevels);
+      updatedPets = sort(updatedPets, selectedSorting);
+
+      setVisiblePets(updatedPets);
     }
 
     return () => { isMounted = false; };
-  }, [pets]);
+  }, [pets, selectedLevels, selectedSorting]);
 
-  useEffect(() => {
-    let isMounted = true;
-
-    if (isMounted && pets !== null) {
-      filterByLevel();
-    }
-
-    return () => { isMounted = false; };
-  }, [currentLevels]);
-
-  if (pets === null) {
+  if (visiblePets === null) {
     return (
       <PageLoader />
     );
@@ -105,7 +91,7 @@ function CatalogPage() {
   return (
     <div className="jd-container">
       <FilterPanel
-        onPetsSort={onPetsSort}
+        onSort={onSortingChange}
         onLevelChange={onLevelChange}
       />
 
