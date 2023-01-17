@@ -1,3 +1,4 @@
+export { default as Highlight } from './highlight/highlight';
 export { default as Icon, IconName, IconSize } from './icon/icon';
 export { default as Tag, TagStyle } from './tag/tag';
 export { default as TagGroup } from './tag-group/tag-group';

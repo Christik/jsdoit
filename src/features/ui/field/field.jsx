@@ -5,7 +5,9 @@ import classnames from 'classnames';
 import { Icon, IconSize } from 'features/ui';
 
 function Field(props) {
-  const { className, icon, placeholder = '' } = props;
+  const {
+    className, icon, placeholder = '', value, onChange,
+  } = props;
 
   return (
     <div className={classnames(
@@ -18,6 +20,8 @@ function Field(props) {
         type="text"
         className="jd-field__input"
         placeholder={placeholder}
+        value={value}
+        onChange={({ target }) => onChange(target.value)}
       />
 
       { icon && (

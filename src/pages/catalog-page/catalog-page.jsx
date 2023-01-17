@@ -23,12 +23,14 @@ const sort = (items, sortType) => {
   }
 };
 
-const filterByLevel = (items, levels) => {
-  if (levels.length === 0) {
+const search = (items, value) => {
+  if (value === '') {
     return items;
   }
 
-  return items.filter(({ level: { value } }) => levels.includes(value));
+  const match = (text) => (text.toLowerCase().indexOf(value.toLowerCase()) !== -1);
+
+  return items.filter(({ title, description }) => match(title) || match(description));
 };
 
 const filterByMarkup = (items, isChecked, resourceList) => {
@@ -42,6 +44,14 @@ const filterByMarkup = (items, isChecked, resourceList) => {
   return items.filter(({ resources }) => resources?.includes(id));
 };
 
+const filterByLevel = (items, levels) => {
+  if (levels.length === 0) {
+    return items;
+  }
+
+  return items.filter(({ level: { value } }) => levels.includes(value));
+};
+
 function CatalogPage() {
   const [pets, setPets] = useState(null);
   const [visiblePets, setVisiblePets] = useState(null);
@@ -49,11 +59,22 @@ function CatalogPage() {
   const [resourceList, setResourceList] = useState(null);
 
   const [selectedSorting, setSelectedSorting] = useState(DEFAULT_SORTING);
+  const [searchValue, setSearchValue] = useState('');
   const [isMarkupPrepared, setIsMarkupPrepared] = useState(false);
   const [selectedLevels, setSelectedLevels] = useState([]);
 
+  // TODO: обновить везде loader
+  const isPetListReady = (visiblePets !== null);
+  const isPetListEmpty = isPetListReady ? (visiblePets.length === 0) : false;
+
   const onSortingChange = (value) => {
     setSelectedSorting(value);
+  };
+
+  // TODO: добавить приоритет поиска по заголовку
+  // TODO: в карточках добавить выделение поисковой фразы
+  const onSearch = (value) => {
+    setSearchValue(value);
   };
 
   const onMarkupChange = (isChecked) => {
@@ -93,6 +114,7 @@ function CatalogPage() {
     if (isMounted && pets !== null) {
       let updatedPets = [...pets];
 
+      updatedPets = search(updatedPets, searchValue);
       updatedPets = filterByMarkup(updatedPets, isMarkupPrepared, resourceList);
       updatedPets = filterByLevel(updatedPets, selectedLevels);
       updatedPets = sort(updatedPets, selectedSorting);
@@ -101,29 +123,43 @@ function CatalogPage() {
     }
 
     return () => { isMounted = false; };
-  }, [pets, resourceList, isMarkupPrepared, selectedLevels, selectedSorting]);
+  }, [pets, resourceList, searchValue, isMarkupPrepared, selectedLevels, selectedSorting]);
 
-  if (visiblePets === null) {
-    return (
-      <PageLoader />
-    );
-  }
+  // TODO: добавить сообщение, если список после сортировки пуст
 
   return (
     <div className="jd-container">
       <FilterPanel
+        searchValue={searchValue}
         onSort={onSortingChange}
+        onSearch={onSearch}
         onMarkupChange={onMarkupChange}
         onLevelChange={onLevelChange}
       />
 
-      <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
-        {
-          visiblePets.map((pet) => (
-            <PetCard key={pet.id} pet={pet} />
-          ))
+      { isPetListReady ? null : <PageLoader /> }
+
+      {
+        isPetListEmpty
+          ? 'Упс... По данному запросу задания не найдены.'
+          : null
+      }
+
+      {
+        (!isPetListReady || isPetListEmpty)
+          ? null
+          : (
+            <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
+              { visiblePets.map((pet) => (
+                <PetCard
+                  key={pet.id}
+                  pet={pet}
+                  search={searchValue}
+                />
+              ))}
+            </div>
+          )
         }
-      </div>
     </div>
   );
 }
