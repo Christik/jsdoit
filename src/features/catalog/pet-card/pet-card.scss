@@ -109,5 +109,21 @@
   @extend .jd-text-body;
   @extend .jd-text-body--s;
 
-  font-weight: 500;
+font-weight: 500;
+}
+
+/*=========================
+  Link
+===========================*/
+
+.jd-card__link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  border-radius: inherit;
+  overflow: hidden;
+  text-indent: -1000px;
 }

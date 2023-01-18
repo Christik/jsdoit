@@ -42,18 +42,13 @@ function PetCard(props) {
   return (
     <article className="jd-card">
       <div className="jd-card__cover">
-        <Link
-          className="jd-card__cover__link"
-          to={generatePath(AppRoute.PET, { slug })}
-        >
-          <img
-            className="jd-card__cover__img"
-            src={img}
-            width="300"
-            height="200"
-            alt={title}
-          />
-        </Link>
+        <img
+          className="jd-card__cover__img"
+          src={img}
+          width="300"
+          height="200"
+          alt={title}
+        />
       </div>
 
       <div className="jd-card__body">
@@ -88,6 +83,14 @@ function PetCard(props) {
           <PetCardResourceList resourceIds={resources} />
         </div>
       )}
+
+      <Link
+        className="jd-card__link"
+        to={generatePath(AppRoute.PET, { slug })}
+      >
+        Подробнее
+      </Link>
+
     </article>
   );
 }

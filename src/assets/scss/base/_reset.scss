@@ -10,13 +10,13 @@
 
 *,
 ::before,
-::after,
+::after
 {
   box-sizing: border-box;
 }
 
 ::before,
-::after,
+::after
 {
   text-decoration: inherit;
   vertical-align: inherit;
@@ -47,7 +47,7 @@ p
 
 a,
 button,
-input[type="submit"],
+input[type="submit"]
 {
   &:hover {
     cursor: pointer;
@@ -62,17 +62,13 @@ a,
 button,
 input,
 select,
-textarea,
+textarea
 {
   background: none;
   color: inherit;
   border: none;
   text-transform: none;
   text-decoration: none;
-
-  &:focus {
-    outline: none;
-  }
 }
 
 ul {
