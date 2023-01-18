@@ -10,4 +10,4 @@ export { default as Pagination } from './pagination/pagination';
 
 export { default as Logo } from './logo/logo';
 export { default as MainMenu } from './main-menu/main-menu';
-export { default as PageLoader } from './page-loader/page-loader';
+export { default as Loader } from './loader/loader';

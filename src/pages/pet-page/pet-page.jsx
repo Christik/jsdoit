@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import { getPetBySlug } from 'store';
 
-import { PageLoader } from 'features/ui';
+import { Loader } from 'features/ui';
 import {
   AboutPet,
   DownloadResources,
@@ -37,7 +37,7 @@ function PetPage() {
 
   if (pet === null) {
     return (
-      <PageLoader />
+      <Loader />
     );
   }
 

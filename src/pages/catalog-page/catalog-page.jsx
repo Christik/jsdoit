@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { SortValue, DEFAULT_SORTING, LevelValue } from 'constants';
 import { getPetList, getResources } from 'store';
 
-import { PageLoader } from 'features/ui';
+import { Loader } from 'features/ui';
 import { FilterPanel, PetCard } from 'features/catalog';
 
 const sort = (items, sortType) => {
@@ -72,7 +72,7 @@ function CatalogPage() {
   };
 
   // TODO: добавить приоритет поиска по заголовку
-  // TODO: в карточках добавить выделение поисковой фразы
+
   const onSearch = (value) => {
     setSearchValue(value);
   };
@@ -125,8 +125,6 @@ function CatalogPage() {
     return () => { isMounted = false; };
   }, [pets, resourceList, searchValue, isMarkupPrepared, selectedLevels, selectedSorting]);
 
-  // TODO: добавить сообщение, если список после сортировки пуст
-
   return (
     <div className="jd-container">
       <FilterPanel
@@ -137,7 +135,7 @@ function CatalogPage() {
         onLevelChange={onLevelChange}
       />
 
-      { isPetListReady ? null : <PageLoader /> }
+      { isPetListReady ? null : <Loader /> }
 
       {
         isPetListEmpty
