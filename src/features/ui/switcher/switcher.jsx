@@ -1,11 +1,31 @@
 import './switcher.scss';
 
+import { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
 function Switcher(props) {
   const {
-    className, id, label, checked, onChange,
+    className, id, label, checked = false, onChange,
   } = props;
+
+  const [isChecked, setIsChecked] = useState(checked);
+
+  const updateCheckbox = (value) => {
+    setIsChecked(value);
+    onChange(value);
+  };
+
+  const onCheckboxChange = (evt) => {
+    updateCheckbox(evt.target.checked);
+  };
+
+  const onCheckboxKeyDown = (evt) => {
+    if (evt.key === 'Enter') {
+      updateCheckbox(!evt.target.checked);
+    }
+  };
+
+  useEffect(() => onChange(checked), []);
 
   return (
     <label
@@ -17,8 +37,9 @@ function Switcher(props) {
           className="jd-switcher__input"
           type="checkbox"
           id={id}
-          checked={checked}
-          onChange={({ target }) => onChange(target.checked)}
+          checked={isChecked}
+          onChange={onCheckboxChange}
+          onKeyDown={onCheckboxKeyDown}
         />
         <span className="jd-switcher__track" />
         <span className="jd-switcher__handle" />

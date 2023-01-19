@@ -1,5 +1,6 @@
 @import 'assets/scss/base/variables';
 @import 'assets/scss/tokens/shadow';
+@import 'assets/scss/tokens/focus';
 @import 'assets/scss/typography/body';
 
 /*=========================
@@ -24,7 +25,7 @@ $jd-switcher-duration: .2s;
 .jd-switcher__input {
   position: absolute;
   pointer-events: none;
-  visibility: hidden;
+  opacity: 0;
 }
 
 .jd-switcher__track {
@@ -78,6 +79,16 @@ $jd-switcher-duration: .2s;
   transform: translate(-100%, -50%);
   border-color: transparent;
   background-color: $jd-color-bg-accent;
+}
+
+/*=========================
+  Focused
+===========================*/
+
+.jd-switcher__input:focus + .jd-switcher__track {
+  @extend .jd-focus;
+
+  outline-offset: 3px;
 }
 
 /*=========================
