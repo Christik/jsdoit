@@ -58,6 +58,28 @@ $jd-switcher-duration: .2s;
     border-color $jd-switcher-duration,
     transform $jd-switcher-duration,
     background-color $jd-switcher-duration;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    width: 220%;
+    height: 220%;
+    background: $jd-color-bg-accent;
+    opacity: .15;
+    border-radius: inherit;
+    transition: transform .2s;
+    z-index: -1;
+  }
+}
+
+@mixin jd-switcher__handle--active {
+  &:before {
+    transform: translate(-50%,-50%) scale(1);
+  }
 }
 
 .jd-switcher__text {
@@ -74,7 +96,7 @@ $jd-switcher-duration: .2s;
   background-color: rgba($jd-color-bg-accent, 35%);
 }
 
-.jd-switcher__input:checked + .jd-switcher__track + .jd-switcher__handle {
+.jd-switcher__input:checked ~ .jd-switcher__handle {
   left: 100%;
   transform: translate(-100%, -50%);
   border-color: transparent;
@@ -82,39 +104,13 @@ $jd-switcher-duration: .2s;
 }
 
 /*=========================
-  Focused
-===========================*/
-
-.jd-switcher__input:focus + .jd-switcher__track {
-  @extend .jd-focus;
-
-  outline-offset: 3px;
-}
-
-/*=========================
   Hover
 ===========================*/
 
 @media (hover: hover) {
-  .jd-switcher__handle:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%) scale(0);
-    width: 220%;
-    height: 220%;
-    background: $jd-color-bg-accent;
-    opacity: .15;
-    border-radius: inherit;
-    transition: transform .2s;
-    z-index: -1;
-  }
-
   .jd-switcher:hover {
-    .jd-switcher__handle:before {
-      transform: translate(-50%,-50%) scale(1);
+    .jd-switcher__handle {
+      @include jd-switcher__handle--active();
     }
   }
 
@@ -123,4 +119,12 @@ $jd-switcher-duration: .2s;
       opacity: .3;
     }
   }
+}
+
+/*=========================
+  Focus
+===========================*/
+
+.jd-switcher__input:focus ~ .jd-switcher__handle {
+  @include jd-switcher__handle--active();
 }
