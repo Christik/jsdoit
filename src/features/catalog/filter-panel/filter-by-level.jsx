@@ -4,7 +4,6 @@ import { Checkbox } from 'features/ui';
 const levels = Object.values(LevelValue).map((value) => ({
   value,
   label: LevelLabel[value],
-  isChecked: false,
 }));
 
 function FilterByLevel({ onLevelChange }) {

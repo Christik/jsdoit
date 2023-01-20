@@ -8,21 +8,24 @@ function Checkbox(props) {
     className, value, label, checked = false, onChange,
   } = props;
 
-  const [isChecked, setIsChecked] = useState(checked);
+  const [isChecked, setIsChecked] = useState();
 
-  const onCheckboxChange = ({ target }) => {
-    setIsChecked(target.checked);
-    onChange(target.value, target.checked);
+  const onCheckboxChange = () => {
+    setIsChecked((prevIsChecked) => !prevIsChecked);
   };
 
   const onCheckboxKeydown = (evt) => {
     if (evt.key === 'Enter') {
-      onChange(evt.target.value, !evt.target.checked);
       setIsChecked((prevIsChecked) => !prevIsChecked);
     }
   };
 
-  useEffect(() => onChange(value, isChecked), []);
+  useEffect(
+    () => onChange(value, isChecked),
+    [isChecked, value],
+  );
+
+  useEffect(() => setIsChecked(checked), [checked]);
 
   return (
     <label

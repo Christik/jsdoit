@@ -10,22 +10,19 @@ function Switcher(props) {
 
   const [isChecked, setIsChecked] = useState(checked);
 
-  const updateCheckbox = (value) => {
-    setIsChecked(value);
-    onChange(value);
-  };
-
-  const onCheckboxChange = (evt) => {
-    updateCheckbox(evt.target.checked);
+  const onCheckboxChange = () => {
+    setIsChecked((prevIsChecked) => !prevIsChecked);
   };
 
   const onCheckboxKeyDown = (evt) => {
     if (evt.key === 'Enter') {
-      updateCheckbox(!evt.target.checked);
+      setIsChecked((prevIsChecked) => !prevIsChecked);
     }
   };
 
-  useEffect(() => onChange(checked), []);
+  useEffect(() => onChange(isChecked), [isChecked]);
+
+  useEffect(() => setIsChecked(checked), [checked]);
 
   return (
     <label
