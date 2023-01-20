@@ -16,7 +16,7 @@
 .jd-checkbox__input {
   position: absolute;
   pointer-events: none;
-  visibility: hidden;
+  opacity: 0;
 }
 .jd-checkbox__box {
   @extend .jd-border-radius-xs;
@@ -36,6 +36,17 @@
     top: 50%;
     transform: translate(-50%,-50%);
   }
+
+  &:after {
+    @extend .jd-icon;
+
+    opacity: 0;
+    background-color: $jd-color-bg-primary;
+    width: 85%;
+    height: 85%;
+    -webkit-mask-image: url('#{$jd-path-icons}/check.svg');
+    mask-image: url('#{$jd-path-icons}/check.svg');
+  }
 }
 .jd-checkbox__text {
   @extend .jd-text-body;
@@ -53,19 +64,19 @@
   background-color: $jd-color-bg-accent;
 
   &:after {
-    @extend .jd-icon;
-
-    background-color: $jd-color-bg-primary;
-    width: 85%;
-    height: 85%;
-    -webkit-mask-image: url('#{$jd-path-icons}/check.svg');
-    mask-image: url('#{$jd-path-icons}/check.svg');
+    opacity: 1;
   }
 }
 
 /*=========================
   Hover & Active
 ===========================*/
+
+@mixin jd-checkbox__box--active {
+  &:before {
+    transform: translate(-50%,-50%) scale(1);
+  }
+}
 
 @media (hover: hover) {
   .jd-checkbox__box:before {
@@ -80,8 +91,8 @@
   }
 
   .jd-checkbox:hover {
-    .jd-checkbox__box:before {
-      transform: translate(-50%,-50%) scale(1);
+    .jd-checkbox__box {
+      @include jd-checkbox__box--active;
     }
   }
 
@@ -90,4 +101,12 @@
       opacity: .3;
     }
   }
+}
+
+/*=========================
+  Focus
+===========================*/
+
+.jd-checkbox__input:focus + .jd-checkbox__box {
+  @include jd-checkbox__box--active;
 }
