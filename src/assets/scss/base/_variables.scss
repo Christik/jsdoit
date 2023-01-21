@@ -71,3 +71,17 @@ $jd-control-height-s: 2rem;
 ===========================*/
 
 $jd-header-height: 3.5rem;
+
+/*=========================
+  Toasting Overriding
+===========================*/
+
+:root {
+  --toastify-color-info: #{$jd-color-bg-accent};
+  --toastify-color-success: #{$jd-color-bg-success};
+  --toastify-color-warning: #{$jd-color-bg-warning};
+  --toastify-color-error: #{$jd-color-bg-error};
+
+  --toastify-font-family: #{$jd-font-primary};
+  --toastify-text-color-light: #{$jd-color-text-primary};
+}

@@ -10,8 +10,8 @@ function Checkbox(props) {
 
   const [isChecked, setIsChecked] = useState();
 
-  const onCheckboxChange = () => {
-    setIsChecked((prevIsChecked) => !prevIsChecked);
+  const onCheckboxChange = (evt) => {
+    setIsChecked(evt.target.checked);
   };
 
   const onCheckboxKeydown = (evt) => {

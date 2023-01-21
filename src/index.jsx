@@ -1,8 +1,10 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './index.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import { AppRoute } from 'constants';
 
@@ -21,5 +23,10 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
+
+    <ToastContainer
+      position="top-center"
+      autoClose={false}
+    />
   </React.StrictMode>,
 );
