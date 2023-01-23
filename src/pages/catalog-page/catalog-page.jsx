@@ -53,6 +53,10 @@ const filterByLevel = (items, levels) => {
 };
 
 function CatalogPage() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [isCatalogEmpty, setIsCatalogEmpty] = useState(false);
+
   const [pets, setPets] = useState(null);
   const [visiblePets, setVisiblePets] = useState(null);
 
@@ -63,9 +67,7 @@ function CatalogPage() {
   const [isMarkupPrepared, setIsMarkupPrepared] = useState(false);
   const [selectedLevels, setSelectedLevels] = useState([]);
 
-  // TODO: обновить везде loader
-  const isPetListReady = (visiblePets !== null);
-  const isPetListEmpty = isPetListReady ? (visiblePets.length === 0) : false;
+  const isCatalogReady = !(isLoading || isCatalogEmpty || isError);
 
   const onSortingChange = (value) => {
     setSelectedSorting(value);
@@ -88,18 +90,21 @@ function CatalogPage() {
     }));
   };
 
-  // TODO: переместить список проектов в глобальный state
-
   useEffect(() => {
     let isMounted = true;
 
     const fetchData = async () => {
-      const petList = await getPetList();
-      const resources = await getResources();
+      try {
+        const petList = await getPetList();
+        const resources = await getResources();
 
-      if (isMounted) {
-        setPets(petList);
-        setResourceList(resources);
+        if (isMounted) {
+          setPets(petList);
+          setResourceList(resources);
+        }
+      } catch (error) {
+        setIsError(true);
+        setIsLoading(false);
       }
     };
 
@@ -107,6 +112,12 @@ function CatalogPage() {
 
     return () => { isMounted = false; };
   }, []);
+
+  useEffect(() => {
+    if (visiblePets !== null) {
+      setIsLoading(false);
+    }
+  }, [visiblePets]);
 
   useEffect(() => {
     let isMounted = true;
@@ -120,10 +131,14 @@ function CatalogPage() {
       updatedPets = sort(updatedPets, selectedSorting);
 
       setVisiblePets(updatedPets);
+      setIsCatalogEmpty(updatedPets.length === 0);
     }
 
     return () => { isMounted = false; };
-  }, [pets, resourceList, searchValue, isMarkupPrepared, selectedLevels, selectedSorting]);
+  }, [
+    pets, resourceList, searchValue,
+    isMarkupPrepared, selectedLevels, selectedSorting,
+  ]);
 
   return (
     <div className="jd-container">
@@ -135,29 +150,23 @@ function CatalogPage() {
         onLevelChange={onLevelChange}
       />
 
-      { isPetListReady ? null : <Loader /> }
+      { isError && 'oops...' }
 
-      {
-        isPetListEmpty
-          ? 'Упс... По данному запросу задания не найдены.'
-          : null
-      }
+      { isLoading && <Loader /> }
 
-      {
-        (!isPetListReady || isPetListEmpty)
-          ? null
-          : (
-            <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
-              { visiblePets.map((pet) => (
-                <PetCard
-                  key={pet.id}
-                  pet={pet}
-                  search={searchValue}
-                />
-              ))}
-            </div>
-          )
-        }
+      { isCatalogEmpty && 'Упс... По данному запросу задания не найдены.' }
+
+      { isCatalogReady && (
+        <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
+          { visiblePets.map((pet) => (
+            <PetCard
+              key={pet.id}
+              pet={pet}
+              search={searchValue}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
