@@ -14,19 +14,25 @@ import {
 } from 'features/pet';
 
 function PetPage() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [pet, setPet] = useState(null);
-  const { slug } = useParams();
 
-  // TODO: перенести pet в глобальный state
+  const { slug } = useParams();
 
   useEffect(() => {
     let isMounted = true;
 
     const fetchData = async () => {
-      const data = await getPetBySlug(slug);
+      try {
+        const data = await getPetBySlug(slug);
 
-      if (isMounted) {
-        setPet(data);
+        if (isMounted) {
+          setPet(data);
+        }
+      } catch (error) {
+        setIsLoading(false);
+        setIsError(true);
       }
     };
 
@@ -35,10 +41,20 @@ function PetPage() {
     return () => { isMounted = false; };
   }, [slug]);
 
-  if (pet === null) {
+  useEffect(() => {
+    if (pet !== null) {
+      setIsLoading(false);
+    }
+  }, [pet]);
+
+  if (isLoading) {
     return (
       <Loader />
     );
+  }
+
+  if (isError) {
+    return 'ooops...';
   }
 
   return (
