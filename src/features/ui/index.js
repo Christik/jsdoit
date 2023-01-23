@@ -6,6 +6,7 @@ export { default as Checkbox } from './checkbox/checkbox';
 export { default as Switcher } from './switcher/switcher';
 export { default as Field } from './field/field';
 export { default as Dropdown } from './dropdown/dropdown';
+export { default as LinkList } from './link-list/link-list';
 export { default as Pagination } from './pagination/pagination';
 
 export { default as Logo } from './logo/logo';

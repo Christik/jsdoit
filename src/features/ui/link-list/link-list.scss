@@ -1,0 +1,63 @@
+@import 'assets/scss/base/variables';
+@import 'assets/scss/typography/body';
+@import 'assets/scss/typography/link';
+@import 'assets/scss/tokens/focus';
+
+/*=========================
+  Link List
+===========================*/
+
+.jd-link-list__item {
+  &:not(:first-child) {
+    margin-top: map-get($jd-spacers, 'xs');
+  }
+}
+
+.jd-link-list__link {
+  @extend .jd-text-body;
+
+  display: inline-block;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.jd-link-list__icon {
+  margin-right: map-get($jd-spacers, 'xs');
+  background-color: $jd-color-text-secondary;
+  position: absolute;
+  left: 0;
+  top: .5em;
+  transform: translateY(-20%);
+}
+
+.jd-link-list__title {
+  @extend .jd-link;
+}
+
+/*=========================
+  Hover
+===========================*/
+
+@mixin jd-link-list__link--hover {
+  .jd-link-list__icon {
+    background-color: $jd-color-text-accent;
+  }
+  .jd-link-list__title {
+    @include jd-link--hover();
+  }
+}
+
+@media (hover: hover) {
+  .jd-link-list__link:hover {
+    @include jd-link-list__link--hover();
+  }
+}
+
+/*=========================
+  Focus
+===========================*/
+
+.jd-link-list__link:focus {
+  @extend .jd-no-focus;
+  @include jd-link-list__link--hover();
+}

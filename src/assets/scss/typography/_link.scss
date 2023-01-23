@@ -1,0 +1,20 @@
+/*=========================
+  Link
+===========================*/
+
+@mixin jd-link--hover {
+  border-bottom-color: transparent;
+  color: $jd-color-text-accent;
+}
+
+.jd-link {
+  text-decoration: none;
+  color: $jd-color-text-primary;
+  border-bottom: solid 1px rgba($jd-color-text-primary, .75);
+}
+
+@media (hover: hover) {
+  .jd-link:hover {
+    @include jd-link--hover();
+  }
+}

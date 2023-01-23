@@ -4,11 +4,9 @@ import { NotionApiType } from 'constants';
 
 const NOTION_URL = 'https://notion-api.splitbee.io/v1/';
 
-// TODO: добавить вывод ошибок
-
 const getDataFromNotion = async (dbId, type = NotionApiType.TABLE) => {
   try {
-    const response = await fetch(`${NOTION_URL}/${type}/${dbId}8`);
+    const response = await fetch(`${NOTION_URL}/${type}/${dbId}`);
 
     if (!response.ok) {
       toast.error(`${response.status} - ${response.statusText}`);

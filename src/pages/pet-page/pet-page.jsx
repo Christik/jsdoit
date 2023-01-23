@@ -11,6 +11,7 @@ import {
   DownloadResources,
   Gallery,
   Specification,
+  UsefulLinks,
 } from 'features/pet';
 
 function PetPage() {
@@ -71,7 +72,11 @@ function PetPage() {
 
         <div className="jd-pet-layout__main">
           <div className="jd-pet-layout__main__content">
-            <Specification content={pet.specification} />
+            <Specification
+              className="jd-spacer-bottom-2xl"
+              content={pet.specification}
+            />
+            <UsefulLinks />
           </div>
 
           <div className="jd-pet-layout__main__side">
