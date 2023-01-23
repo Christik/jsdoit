@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { SortValue, DEFAULT_SORTING, LevelValue } from 'constants';
 import { getPetList, getResources } from 'store';
 
-import { Loader } from 'features/ui';
+import { Loader, Error } from 'features/ui';
 import { FilterPanel, PetCard } from 'features/catalog';
 
 const sort = (items, sortType) => {
@@ -150,7 +150,7 @@ function CatalogPage() {
         onLevelChange={onLevelChange}
       />
 
-      { isError && 'oops...' }
+      { isError && <Error /> }
 
       { isLoading && <Loader /> }
 

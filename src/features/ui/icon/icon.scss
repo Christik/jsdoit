@@ -5,7 +5,8 @@
 ===========================*/
 
 .jd-icon {
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   width: 1.2rem;
   height: 1.2rem;
   background: $jd-color-text-primary;
@@ -32,7 +33,9 @@
 ===========================*/
 
 $jd-icons:
-  'search', 'code', 'terminal', 'info', 'file-text', 'smile', 'check-circle',
+  'search', 'code', 'terminal', 'info', 'file-text', 'check-circle',
+  // smiles
+  'smile', 'sad-smile',
   // arrows
   'down', 'chevron-down',
   // sort

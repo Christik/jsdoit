@@ -24,9 +24,6 @@ root.render(
       </Routes>
     </BrowserRouter>
 
-    <ToastContainer
-      position="top-center"
-      autoClose={false}
-    />
+    <ToastContainer position="top-center" />
   </React.StrictMode>,
 );

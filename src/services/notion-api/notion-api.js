@@ -8,7 +8,7 @@ const NOTION_URL = 'https://notion-api.splitbee.io/v1/';
 
 const getDataFromNotion = async (dbId, type = NotionApiType.TABLE) => {
   try {
-    const response = await fetch(`${NOTION_URL}/${type}/${dbId}`);
+    const response = await fetch(`${NOTION_URL}/${type}/${dbId}8`);
 
     if (!response.ok) {
       toast.error(`${response.status} - ${response.statusText}`);

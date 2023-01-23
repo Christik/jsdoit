@@ -11,3 +11,4 @@ export { default as Pagination } from './pagination/pagination';
 export { default as Logo } from './logo/logo';
 export { default as MainMenu } from './main-menu/main-menu';
 export { default as Loader } from './loader/loader';
+export { default as Error } from './error/error';

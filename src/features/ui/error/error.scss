@@ -1,0 +1,32 @@
+@import 'assets/scss/base/variables';
+@import 'assets/scss/tokens/spacers';
+@import 'assets/scss/typography/body';
+
+/*=========================
+  Error
+===========================*/
+
+.jd-error {
+  text-align: center;
+  padding: map-get($jd-spacers, 'm');
+}
+
+.jd-error__icon {
+  background-color: $jd-color-text-error;
+  margin-right: map-get($jd-spacers, 'xs');
+  transform: translateY(-10%);
+}
+
+.jd-error__title {
+  @extend .jd-text-body;
+  @extend .jd-text-body--l;
+
+  font-weight: 500;
+  margin-bottom: .5em;
+}
+
+.jd-error__text {
+  @extend .jd-text-body;
+
+  color: $jd-color-text-secondary;
+}
