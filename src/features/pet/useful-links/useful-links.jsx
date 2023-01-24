@@ -1,27 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { LinkList } from 'features/ui';
+import { LinkList, Loader, Error } from 'features/ui';
+import { getUsefulLinks } from 'store';
+
+const LinkIcon = {
+  video: 'youtube',
+  article: 'file-text',
+};
 
 function UsefulLinks(props) {
-  const { className } = props;
+  const { className, id } = props;
 
-  const [links] = useState([
-    {
-      icon: 'file-text',
-      title: 'Пример калькулятора',
-      url: '#todo',
-    },
-    {
-      icon: 'file-text',
-      title: 'Очень полезная статья',
-      url: '#todo',
-    },
-    {
-      icon: 'youtube',
-      title: 'Видео про что-то очень важное',
-      url: '#todo',
-    },
-  ]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [links, setLinks] = useState(null);
+
+  const isContentReady = !(isLoading || isError);
+
+  useEffect(() => {
+    const getLinks = async () => {
+      try {
+        const data = await getUsefulLinks(id);
+        const adaptedLinks = data.map(({ type, ...rest }) => ({
+          ...rest,
+          icon: LinkIcon[type],
+        }));
+
+        setLinks(adaptedLinks);
+      } catch (error) {
+        setIsError(true);
+      }
+
+      setIsLoading(false);
+    };
+
+    getLinks();
+  }, [id]);
 
   return (
     <section className={className}>
@@ -29,7 +43,11 @@ function UsefulLinks(props) {
         Полезные ссылки
       </h2>
 
-      <LinkList items={links} />
+      { isLoading && <Loader /> }
+
+      { isError && <Error /> }
+
+      { isContentReady && <LinkList items={links} /> }
     </section>
   );
 }
