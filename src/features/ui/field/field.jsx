@@ -3,11 +3,22 @@ import './field.scss';
 import classnames from 'classnames';
 
 import { Icon, IconSize } from 'features/ui';
+import { useState, useEffect, useDeferredValue } from 'react';
 
 function Field(props) {
   const {
     className, icon, placeholder = '', value, onChange,
   } = props;
+  const [text, setText] = useState(value);
+  const deferredValue = useDeferredValue(text);
+
+  const onInputChange = (evt) => {
+    setText(evt.target.value);
+  };
+
+  useEffect(() => {
+    onChange(deferredValue);
+  }, [deferredValue]);
 
   return (
     <div className={classnames(
@@ -20,8 +31,8 @@ function Field(props) {
         type="text"
         className="jd-field__input"
         placeholder={placeholder}
-        value={value}
-        onChange={({ target }) => onChange(target.value)}
+        value={text}
+        onChange={onInputChange}
       />
 
       { icon && (
