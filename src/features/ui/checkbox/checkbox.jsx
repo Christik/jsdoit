@@ -1,6 +1,6 @@
 import './checkbox.scss';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useId } from 'react';
 import classnames from 'classnames';
 
 function Checkbox(props) {
@@ -8,6 +8,7 @@ function Checkbox(props) {
     className, value, label, checked = false, onChange,
   } = props;
 
+  const id = useId();
   const [isChecked, setIsChecked] = useState();
 
   const onCheckboxChange = (evt) => {
@@ -30,12 +31,12 @@ function Checkbox(props) {
   return (
     <label
       className={classnames('jd-checkbox', className)}
-      htmlFor={`check-${value}`}
+      htmlFor={id}
     >
       <input
         className="jd-checkbox__input"
         type="checkbox"
-        id={`check-${value}`}
+        id={id}
         value={value}
         checked={isChecked}
         onChange={onCheckboxChange}

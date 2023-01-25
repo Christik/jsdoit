@@ -1,13 +1,14 @@
 import './switcher.scss';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useId } from 'react';
 import classnames from 'classnames';
 
 function Switcher(props) {
   const {
-    className, id, label, checked = false, onChange,
+    className, label, checked = false, onChange,
   } = props;
 
+  const id = useId();
   const [isChecked, setIsChecked] = useState(checked);
 
   const onCheckboxChange = () => {
