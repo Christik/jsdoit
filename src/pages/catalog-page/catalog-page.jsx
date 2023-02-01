@@ -4,7 +4,7 @@ import { SortValue, DEFAULT_SORTING, LevelValue } from 'constants';
 import { getPetList, getResources } from 'store';
 
 import { Loader, Error } from 'features/ui';
-import { FilterPanel, PetCard } from 'features/catalog';
+import { EmptyPetList, FilterPanel, PetCard } from 'features/catalog';
 
 const sort = (items, sortType) => {
   switch (sortType) {
@@ -156,7 +156,7 @@ function CatalogPage() {
 
       { isLoading && <Loader /> }
 
-      { isCatalogEmpty && 'Упс... По данному запросу задания не найдены.' }
+      { isCatalogEmpty && <EmptyPetList /> }
 
       { isCatalogReady && (
         <div className="jd-container jd-spacer-top-xl">
