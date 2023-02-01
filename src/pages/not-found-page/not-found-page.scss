@@ -1,0 +1,14 @@
+@import 'assets/scss/base/variables';
+
+/*=========================
+  Not Found Page
+===========================*/
+
+.jd-not-found-page {
+  text-align: center;
+  padding: map-get($jd-spacers, 'xl') 0;
+}
+
+.jd-not-found-page__title {
+  margin-bottom: map-get($jd-spacers, 'm');
+}

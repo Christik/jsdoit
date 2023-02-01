@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 
 import { getPetBySlug } from 'store';
 
-import { Loader, Error } from 'features/ui';
+import { Loader } from 'features/ui';
+import NotFoundPage from 'pages/not-found-page/not-found-page';
 import {
   AboutPet,
   DownloadResources,
@@ -57,7 +58,7 @@ function PetPage() {
   }
 
   if (isError) {
-    return <Error />;
+    return <NotFoundPage />;
   }
 
   return (
