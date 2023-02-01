@@ -12,7 +12,7 @@ function FilterPanel(props) {
   // TODO: сделать компоненты контролируемыми
 
   return (
-    <div className="jd-filter-panel jd-spacer-top-xl jd-spacer-bottom-xl">
+    <div className="jd-filter-panel jd-spacer-top-xl">
       <Sorting onSort={onSort} />
       <Search value={searchValue} onSearch={onSearch} />
       <FilterByMarkup onMarkupChange={onMarkupChange} />

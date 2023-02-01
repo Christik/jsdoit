@@ -141,14 +141,16 @@ function CatalogPage() {
   ]);
 
   return (
-    <div className="jd-container">
-      <FilterPanel
-        searchValue={searchValue}
-        onSort={onSortingChange}
-        onSearch={onSearch}
-        onMarkupChange={onMarkupChange}
-        onLevelChange={onLevelChange}
-      />
+    <>
+      <div className="jd-container">
+        <FilterPanel
+          searchValue={searchValue}
+          onSort={onSortingChange}
+          onSearch={onSearch}
+          onMarkupChange={onMarkupChange}
+          onLevelChange={onLevelChange}
+        />
+      </div>
 
       { isError && <Error /> }
 
@@ -157,17 +159,19 @@ function CatalogPage() {
       { isCatalogEmpty && 'Упс... По данному запросу задания не найдены.' }
 
       { isCatalogReady && (
-        <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
-          { visiblePets.map((pet) => (
-            <PetCard
-              key={pet.id}
-              pet={pet}
-              search={searchValue}
-            />
-          ))}
+        <div className="jd-container jd-spacer-top-xl">
+          <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
+            { visiblePets.map((pet) => (
+              <PetCard
+                key={pet.id}
+                pet={pet}
+                search={searchValue}
+              />
+            ))}
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
