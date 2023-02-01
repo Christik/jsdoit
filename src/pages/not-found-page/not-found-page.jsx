@@ -1,3 +1,5 @@
+import { AppRoute } from 'constants';
+import { Link } from 'react-router-dom';
 import './not-found-page.scss';
 
 function NotFoundPage() {
@@ -13,7 +15,12 @@ function NotFoundPage() {
         <p className="jd-text-body">
           Зато в
           {' '}
-          <a className="jd-link" href="#todo">каталоге</a>
+          <Link
+            className="jd-link jd-link--accent"
+            to={AppRoute.CATALOG}
+          >
+            каталоге
+          </Link>
           {' '}
           можно выбрать проект на свой вкус :)
         </p>
