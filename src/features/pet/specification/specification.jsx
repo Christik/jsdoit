@@ -3,7 +3,7 @@ function Specification(props) {
 
   return (
     <section className={className}>
-      <h2 className="jd-text-title jd-text-title--h2 jd-spacer-bottom-l">
+      <h2 className="jd-text-title jd-text-title--s jd-spacer-bottom-l">
         Техническое задание
       </h2>
 

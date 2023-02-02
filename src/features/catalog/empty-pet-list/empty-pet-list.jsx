@@ -4,7 +4,7 @@ function EmptyPetList() {
   return (
     <div className="jd-empty-pet-list">
       <div className="jd-container">
-        <div className="jd-empty-pet-list__title jd-text-title jd-text-title--h2">
+        <div className="jd-empty-pet-list__title jd-text-title jd-text-title--s">
           ¯\_(ツ)_/¯
         </div>
         <p className="jd-text-body">

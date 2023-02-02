@@ -32,7 +32,7 @@ function AboutPet(props) {
       {/* TODO: отрефакторить данные о ресурсах и обновить рендер */}
       <br />
       <br />
-      <p className="jd-text-title jd-text-title--h3 jd-spacer-bottom-m">
+      <p className="jd-text-title jd-text-title--xs jd-spacer-bottom-m">
         Исходные материалы:
       </p>
       <ul className="jd-text-body jd-spacer-bottom-l">
