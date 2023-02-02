@@ -4,7 +4,7 @@ import { SortValue, DEFAULT_SORTING, LevelValue } from 'constants';
 import { getPetList, getResources } from 'store';
 
 import { Loader, Error } from 'features/ui';
-import { EmptyPetList, FilterPanel, PetCard } from 'features/catalog';
+import { EmptyPetList, FilterPanel, PetList } from 'features/catalog';
 
 const sort = (items, sortType) => {
   switch (sortType) {
@@ -158,19 +158,7 @@ function CatalogPage() {
 
       { isCatalogEmpty && <EmptyPetList /> }
 
-      { isCatalogReady && (
-        <div className="jd-container jd-spacer-top-xl">
-          <div className="jd-grid jd-grid--3-columns jd-spacer-bottom-xl">
-            { visiblePets.map((pet) => (
-              <PetCard
-                key={pet.id}
-                pet={pet}
-                search={searchValue}
-              />
-            ))}
-          </div>
-        </div>
-      )}
+      { isCatalogReady && <PetList pets={visiblePets} searchValue={searchValue} /> }
     </>
   );
 }
