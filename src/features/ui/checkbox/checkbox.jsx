@@ -9,7 +9,7 @@ function Checkbox(props) {
   } = props;
 
   const id = useId();
-  const [isChecked, setIsChecked] = useState();
+  const [isChecked, setIsChecked] = useState(checked);
 
   const onCheckboxChange = (evt) => {
     setIsChecked(evt.target.checked);
