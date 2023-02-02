@@ -144,6 +144,7 @@ function CatalogPage() {
     <>
       <div className="jd-container">
         <FilterPanel
+          isDisabled={isLoading || isError}
           searchValue={searchValue}
           onSort={onSortingChange}
           onSearch={onSearch}
