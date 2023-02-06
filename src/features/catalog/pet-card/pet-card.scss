@@ -22,13 +22,34 @@
 ===========================*/
 
 .jd-card__cover {
+  background: $jd-color-bg-secondary;
   border-bottom: solid 1px rgba($jd-color-border-primary, .5);
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: url('#{$jd-path-image}/pattern-shapes.svg');
+    background-size: 20% auto;
+    opacity: .5;
+    pointer-events: none;
+  }
 }
 
 .jd-card__cover__img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  position: relative;
 }
 
 .jd-card__cover,
@@ -126,4 +147,20 @@ font-weight: 500;
   border-radius: inherit;
   overflow: hidden;
   text-indent: -1000px;
+}
+
+/*=========================
+  Hover
+===========================*/
+
+@media (hover: hover) {
+  .jd-card__cover__img {
+    transition: transform .3s;
+  }
+
+  .jd-card:hover {
+    .jd-card__cover__img {
+      transform: scale(1.08);
+    }
+  }
 }
