@@ -9,9 +9,13 @@ function AboutPet(props) {
   const {
     className,
     pet: {
-      title, description, level, tags,
+      title, description, level, tags, figmaUrl, markupUrl,
     },
   } = props;
+
+  const hasFigma = (figmaUrl !== '');
+  const hasMarkup = (markupUrl !== '');
+  const hasTags = (tags.length !== 1 && tags[0] !== '');
 
   return (
     <div className={classnames('jd-pet-about', className)}>
@@ -29,24 +33,26 @@ function AboutPet(props) {
         </p>
       </div>
 
-      {/* TODO: отрефакторить данные о ресурсах и обновить рендер */}
-      <br />
-      <br />
-      <p className="jd-text-title jd-text-title--xs jd-spacer-bottom-m">
+      <p className="jd-text-title jd-text-title--xs jd-spacer-bottom-m jd-spacer-top-xl">
         Исходные материалы:
       </p>
       <ul className="jd-text-body jd-spacer-bottom-l">
-        <li className="jd-spacer-bottom-s">
-          <span className="jd-icon jd-icon--text jd-icon--color-secondary jd-icon--figma" />
-          макет в Figma
-        </li>
-        <li>
-          <span className="jd-icon jd-icon--text jd-icon--color-secondary jd-icon--code" />
-          готовая верстка
-        </li>
+        { hasFigma && (
+          <li className="jd-spacer-bottom-s">
+            <span className="jd-icon jd-icon--text jd-icon--color-secondary jd-icon--figma" />
+            макет в Figma
+          </li>
+        )}
+
+        { hasMarkup && (
+          <li>
+            <span className="jd-icon jd-icon--text jd-icon--color-secondary jd-icon--code" />
+            готовая верстка
+          </li>
+        )}
       </ul>
 
-      <TagGroup tags={tags} />
+      { hasTags && <TagGroup tags={tags} /> }
     </div>
   );
 }
