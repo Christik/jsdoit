@@ -1,14 +1,24 @@
 @import 'assets/scss/base/variables';
+@import 'assets/scss/tokens/focus';
 
 /*=========================
   Logo
 ===========================*/
 
 .jd-logo {
+  display: block;
   font-size: 1.2rem;
   font-weight: 800;
   text-transform: uppercase;
   margin-left: .5rem;
+
+  &:focus {
+    @extend .jd-no-focus;
+  }
+}
+
+.jd-logo--active {
+  pointer-events: none;
 }
 
 .jd-logo__js {

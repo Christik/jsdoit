@@ -1,7 +1,7 @@
 import './main-menu.scss';
 
-import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
+import { NavLink } from 'react-router-dom';
 
 import { AppRoute } from 'constants';
 
@@ -10,7 +10,12 @@ function MainMenu({ className }) {
     <ul className={classnames('jd-main-menu', className)}>
       <li className="jd-main-menu__item">
         <NavLink
-          className={({ isActive }) => (isActive ? 'jd-main-menu__link jd-main-menu__link--active' : 'jd-main-menu__link')}
+          className={({ isActive }) => (
+            classnames(
+              'jd-main-menu__link',
+              { 'jd-main-menu__link--active': isActive },
+            )
+          )}
           to={AppRoute.CATALOG}
           end
         >
