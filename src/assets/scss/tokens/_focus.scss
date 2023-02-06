@@ -2,11 +2,14 @@
   Focus
 ===========================*/
 
-*:focus,
-.jd-focus {
+@mixin jd-focus {
   outline: solid .2rem rgba($jd-color-bg-accent, .5);
 }
 
-.jd-no-focus {
+@mixin jd-no-focus {
   outline: none;
+}
+
+*:focus {
+  @include jd-focus();
 }

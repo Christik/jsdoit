@@ -23,8 +23,8 @@
   height: $jd-control-height-s;
 }
 .jd-pagination__link {
-  @extend .jd-border-radius-s;
   @extend .jd-text-body;
+  @include jd-border-radius-s();
 
   font-weight: 500;
   border: solid 1px $jd-color-border-primary;

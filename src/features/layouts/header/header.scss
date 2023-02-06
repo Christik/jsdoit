@@ -6,7 +6,7 @@
 ===========================*/
 
 .jd-header {
-  @extend .jd-shadow-m;
+  @include jd-shadow-m();
 
   background: $jd-color-bg-primary;
 }

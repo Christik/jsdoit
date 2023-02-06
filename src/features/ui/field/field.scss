@@ -11,9 +11,9 @@
   position: relative;
 }
 .jd-field__input {
-  @extend .jd-border-radius-s;
-  @extend .jd-shadow-s;
   @extend .jd-text-body;
+  @include jd-border-radius-s();
+  @include jd-shadow-s();
 
   display: block;
   width: 100%;

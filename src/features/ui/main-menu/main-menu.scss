@@ -17,7 +17,7 @@
 ===========================*/
 
 .jd-main-menu__link {
-  @extend .jd-border-radius-s;
+  @include jd-border-radius-s();
 
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@
 ===========================*/
 
 .jd-main-menu__link:focus {
-  @extend .jd-no-focus;
+  @include jd-no-focus();
 
   background-color: $jd-color-bg-substrate;
   position: relative;

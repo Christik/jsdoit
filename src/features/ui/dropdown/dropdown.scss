@@ -17,8 +17,8 @@
 ===========================*/
 
 .jd-dropdown__trigger {
-  @extend .jd-border-radius-s;
-  @extend .jd-shadow-s;
+  @include jd-border-radius-s();
+  @include jd-shadow-s();
 
   cursor: pointer;
   display: flex;
@@ -80,7 +80,7 @@
 ===========================*/
 
 .jd-dropdown__list {
-  @extend .jd-border-radius-s;
+  @include jd-border-radius-s();
 
   border-top-left-radius: 0;
   border-top-right-radius: 0;

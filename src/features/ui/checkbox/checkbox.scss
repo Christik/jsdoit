@@ -19,7 +19,7 @@
   opacity: 0;
 }
 .jd-checkbox__box {
-  @extend .jd-border-radius-xs;
+  @include jd-border-radius-xs();
 
   position: relative;
   display: block;
@@ -92,7 +92,7 @@
 
   .jd-checkbox:hover {
     .jd-checkbox__box {
-      @include jd-checkbox__box--active;
+      @include jd-checkbox__box--active();
     }
   }
 
@@ -108,5 +108,5 @@
 ===========================*/
 
 .jd-checkbox__input:focus + .jd-checkbox__box {
-  @include jd-checkbox__box--active;
+  @include jd-checkbox__box--active();
 }

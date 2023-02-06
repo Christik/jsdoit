@@ -42,7 +42,7 @@ $jd-switcher-duration: .2s;
 }
 
 .jd-switcher__handle {
-  @extend .jd-shadow-xs;
+  @include jd-shadow-xs();
 
   display: block;
   width: 1rem;

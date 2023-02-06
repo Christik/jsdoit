@@ -8,8 +8,8 @@
 ===========================*/
 
 .jd-card {
-  @extend .jd-border-radius-m;
-  @extend .jd-shadow-m;
+  @include jd-border-radius-m();
+  @include jd-shadow-m();
 
   position: relative;
   display: flex;

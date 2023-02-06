@@ -13,7 +13,7 @@
   margin-left: .5rem;
 
   &:focus {
-    @extend .jd-no-focus;
+    @include jd-no-focus();
   }
 }
 

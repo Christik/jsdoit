@@ -58,6 +58,6 @@
 ===========================*/
 
 .jd-link-list__link:focus {
-  @extend .jd-no-focus;
+  @include jd-no-focus();
   @include jd-link-list__link--hover();
 }
