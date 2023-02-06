@@ -32,11 +32,11 @@
   }
 }
 
-.jd-main-menu__link__text {
+.jd-main-menu__text {
   font-size: .7rem;
 }
 
-.jd-main-menu__link__icon {
+.jd-main-menu__icon {
   background-color: $jd-color-text-secondary;
   opacity: .8;
 }
@@ -49,7 +49,7 @@
   .jd-main-menu__link:hover {
     color: $jd-color-text-accent;
 
-      .jd-main-menu__link__icon {
+      .jd-main-menu__icon {
         background-color: $jd-color-text-accent;
         }
     }

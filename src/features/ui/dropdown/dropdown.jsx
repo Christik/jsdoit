@@ -39,16 +39,16 @@ function Dropdown(props) {
       >
         { icon && (
           <Icon
-            className="jd-dropdown__trigger__icon"
+            className="jd-dropdown__trigger-icon"
             icon={icon}
           />
         )}
 
-        <div className="jd-dropdown__trigger__text">
+        <div className="jd-dropdown__trigger-text">
           {selectedItem.label}
         </div>
 
-        <div className="jd-dropdown__trigger__arrow">
+        <div className="jd-dropdown__trigger-arrow">
           <Icon
             icon={IconName.CHEVRON_DOWN}
             size={IconSize.S}

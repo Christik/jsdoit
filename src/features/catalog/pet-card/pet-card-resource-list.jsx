@@ -43,10 +43,10 @@ function PetCardResourceList({ resourceIds }) {
             <span className={classnames(
               'jd-icon',
               ResourceIconClassNames[index],
-              'jd-card__source__icon',
+              'jd-card__source-icon',
             )}
             />
-            <span className="jd-card__source__text">
+            <span className="jd-card__source-text">
               {label}
             </span>
           </li>

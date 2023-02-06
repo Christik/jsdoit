@@ -19,8 +19,8 @@ function MainMenu({ className }) {
           to={AppRoute.CATALOG}
           end
         >
-          <span className="jd-icon jd-icon--check-circle jd-main-menu__link__icon" />
-          <span className="jd-main-menu__link__text">Задания</span>
+          <span className="jd-icon jd-icon--check-circle jd-main-menu__icon" />
+          <span className="jd-main-menu__text">Задания</span>
         </NavLink>
       </li>
 
@@ -29,8 +29,8 @@ function MainMenu({ className }) {
           className="jd-main-menu__link"
           href="#menu"
         >
-          <span className="jd-icon jd-icon--file-text jd-main-menu__link__icon" />
-          <span className="jd-main-menu__link__text">Новости</span>
+          <span className="jd-icon jd-icon--file-text jd-main-menu__icon" />
+          <span className="jd-main-menu__text">Новости</span>
         </a>
       </li>
 
@@ -39,8 +39,8 @@ function MainMenu({ className }) {
           className="jd-main-menu__link"
           href="#menu"
         >
-          <span className="jd-icon jd-icon--smile jd-main-menu__link__icon" />
-          <span className="jd-main-menu__link__text">О проекте</span>
+          <span className="jd-icon jd-icon--smile jd-main-menu__icon" />
+          <span className="jd-main-menu__text">О проекте</span>
         </a>
       </li>
     </ul>

@@ -30,17 +30,17 @@
   padding-bottom: map-get($jd-spacers, '2xl');
 }
 
-.jd-pet-layout__main__content {
+.jd-pet-layout__main-content {
   flex-grow: 1;
 }
 
-.jd-pet-layout__main__side {
+.jd-pet-layout__main-side {
   flex-basis: 13rem;
   min-width: 13rem;
   position: relative;
 }
 
-.jd-pet-layout__main__side__sticky {
+.jd-pet-layout__main-side-sticky {
   position: sticky;
   top: map-get($jd-spacers, 'm');
 }

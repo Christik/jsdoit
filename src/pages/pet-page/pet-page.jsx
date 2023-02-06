@@ -74,7 +74,7 @@ function PetPage() {
         />
 
         <div className="jd-pet-layout__main">
-          <div className="jd-pet-layout__main__content">
+          <div className="jd-pet-layout__main-content">
             <Specification
               className="jd-spacer-bottom-2xl"
               content={pet.specification}
@@ -83,8 +83,8 @@ function PetPage() {
             { linksTableId && <UsefulLinks id={linksTableId} /> }
           </div>
 
-          <div className="jd-pet-layout__main__side">
-            <div className="jd-pet-layout__main__side__sticky">
+          <div className="jd-pet-layout__main-side">
+            <div className="jd-pet-layout__main-side-sticky">
               <DownloadResources
                 figmaUrl={pet.figmaUrl}
                 markupUrl={pet.markupUrl}

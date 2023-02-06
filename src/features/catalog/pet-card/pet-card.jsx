@@ -44,7 +44,7 @@ function PetCard(props) {
     <article className="jd-card">
       <div className="jd-card__cover">
         <img
-          className="jd-card__cover__img"
+          className="jd-card__cover-img"
           src={img}
           width="300"
           height="200"
