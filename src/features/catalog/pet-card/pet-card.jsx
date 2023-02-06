@@ -38,6 +38,7 @@ function PetCard(props) {
 
   const visibleTitle = getTextWithHighlights(title, search);
   const visibleDescription = getTextWithHighlights(description, search);
+  const hasTags = (tags.length !== 1) && (tags[0] !== '');
 
   return (
     <article className="jd-card">
@@ -72,13 +73,15 @@ function PetCard(props) {
           {createdDate.toDateString()}
         </p>
 
-        <TagGroup
-          className="jd-spacer-top-s"
-          tags={tags}
-        />
+        { hasTags && (
+          <TagGroup
+            className="jd-spacer-top-s"
+            tags={tags}
+          />
+        )}
       </div>
 
-      {resources && (
+      { resources && (
         <div className="jd-card__footer">
           <PetCardResourceList resourceIds={resources} />
         </div>
