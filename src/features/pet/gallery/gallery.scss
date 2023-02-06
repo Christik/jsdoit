@@ -10,12 +10,32 @@
   @include jd-border-radius-m();
   @include jd-shadow-m();
 
-  background: $jd-color-bg-primary;
+  background: $jd-color-bg-secondary;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: url('#{$jd-path-image}/pattern-shapes.svg');
+    background-size: 20% auto;
+    opacity: .5;
+    pointer-events: none;
+  }
 }
 
 .jd-pet-gallery__img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
   border-radius: inherit;
+  position: relative;
 }
