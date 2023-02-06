@@ -1,0 +1,33 @@
+/*=========================
+  Response hidden
+  =========================*/
+
+@media #{$mobile} {
+  .is-mobile-hidden {
+    display: none !important;
+  }
+}
+
+@media #{$up-to-mobile} {
+  .is-up-to-mobile-hidden {
+    display: none !important;
+  }
+}
+
+@media #{$tablet} {
+  .is-tablet-hidden {
+    display: none !important;
+  }
+}
+
+@media #{$up-to-desktop} {
+  .is-up-to-desktop-hidden {
+    display: none !important;
+  }
+}
+
+@media #{$desktop} {
+  .is-desktop-hidden {
+    display: none !important;
+  }
+}

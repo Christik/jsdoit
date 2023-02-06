@@ -24,7 +24,7 @@ function AboutPet(props) {
           {title}
         </h1>
 
-        <Level level={level} />
+        <Level className="jd-pet-about__level" level={level} />
       </div>
 
       <div className="jd-text-body jd-text-color-secondary">
@@ -33,26 +33,28 @@ function AboutPet(props) {
         </p>
       </div>
 
-      <p className="jd-text-title jd-text-title--xs jd-spacer-bottom-m jd-spacer-top-xl">
-        Исходные материалы:
-      </p>
-      <ul className="jd-text-body jd-spacer-bottom-l">
-        { hasFigma && (
-          <li className="jd-spacer-bottom-s">
-            <span className="jd-icon jd-icon--text jd-icon--color-secondary jd-icon--figma" />
-            макет в Figma
-          </li>
-        )}
+      <div className="jd-spacer-top-xl is-mobile-hidden">
+        <p className="jd-text-title jd-text-title--xs jd-spacer-bottom-m">
+          Исходные материалы:
+        </p>
+        <ul className="jd-text-body">
+          { hasFigma && (
+            <li className="jd-spacer-bottom-s">
+              <span className="jd-icon jd-icon--text jd-icon--color-secondary jd-icon--figma" />
+              макет в Figma
+            </li>
+          )}
 
-        { hasMarkup && (
-          <li>
-            <span className="jd-icon jd-icon--text jd-icon--color-secondary jd-icon--code" />
-            готовая верстка
-          </li>
-        )}
-      </ul>
+          { hasMarkup && (
+            <li>
+              <span className="jd-icon jd-icon--text jd-icon--color-secondary jd-icon--code" />
+              готовая верстка
+            </li>
+          )}
+        </ul>
+      </div>
 
-      { hasTags && <TagGroup tags={tags} /> }
+      { hasTags && <TagGroup className="jd-spacer-top-l" tags={tags} /> }
     </div>
   );
 }

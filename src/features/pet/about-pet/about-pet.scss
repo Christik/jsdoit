@@ -7,17 +7,32 @@
 .jd-pet-about {
   display: flex;
   flex-direction: column;
-  padding-top: map-get($jd-spacers, 'm');
 }
 
 .jd-pet-about__header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: map-get($jd-spacers, 'm');
   margin-bottom: map-get($jd-spacers, 'm');
 }
 
-.jd-pet-about__header__level {
-  transform: translateY(-32%);
+@media #{$desktop} {
+  .jd-pet-about {
+    padding-top: map-get($jd-spacers, 'm');
+  }
+
+  .jd-pet-about__header {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media #{$up-to-desktop} {
+  .jd-pet-about__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .jd-pet-about__level {
+    order: -1;
+  }
 }

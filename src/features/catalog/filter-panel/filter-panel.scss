@@ -28,6 +28,33 @@
   grid-column: span 3;
 }
 
+@media #{$up-to-desktop} {
+  .jd-filter-panel {
+    grid-template-columns: auto 1fr;
+  }
+
+  .jd-filter-panel__markup {
+    grid-column: span 2;
+    margin-left: 0;
+    order: 2;
+  }
+}
+
+@media #{$mobile} {
+  .jd-filter-panel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .jd-filter-panel__sort {
+    width: 100%;
+  }
+
+  .jd-filter-panel__search {
+    order: -1;
+  }
+}
+
 /*=========================
   Filter Level
 ===========================*/
@@ -35,10 +62,16 @@
 .jd-filter-by-level {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 map-get($jd-spacers, 'm');
+  gap: map-get($jd-spacers, 'xs') map-get($jd-spacers, 'm');
 }
 
 .jd-filter-by-level__label {
   @extend .jd-text-body;
   @extend .jd-text-color-secondary;
+}
+
+@media #{$up-to-desktop} {
+  .jd-filter-by-level__label {
+    width: 100%;
+  }
 }

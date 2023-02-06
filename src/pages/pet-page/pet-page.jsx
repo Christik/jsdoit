@@ -75,12 +75,14 @@ function PetPage() {
 
         <div className="jd-pet-layout__main">
           <div className="jd-pet-layout__main-content">
-            <Specification
-              className="jd-spacer-bottom-2xl"
-              content={pet.specification}
-            />
+            <Specification content={pet.specification} />
 
-            { linksTableId && <UsefulLinks id={linksTableId} /> }
+            { linksTableId && (
+              <UsefulLinks
+                className="jd-spacer-top-2xl"
+                id={linksTableId}
+              />
+            )}
           </div>
 
           <div className="jd-pet-layout__main-side">

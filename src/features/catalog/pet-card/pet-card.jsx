@@ -58,7 +58,7 @@ function PetCard(props) {
             {visibleTitle}
           </p>
 
-          <Level level={level} />
+          <Level className="jd-card__level" level={level} />
         </div>
 
         <p className="jd-card__description">

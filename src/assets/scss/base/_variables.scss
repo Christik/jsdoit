@@ -74,6 +74,16 @@ $jd-control-height-s: 2rem;
 $jd-header-height: 3.5rem;
 
 /*=========================
+  Responsive
+===========================*/
+
+$desktop: '(min-width: 999px)';
+$up-to-desktop: '(max-width: 998px)';
+$tablet: '(min-width: 601px) and (max-width: 998px)';
+$up-to-mobile: '(min-width: 601px)';
+$mobile: '(max-width: 600px)';
+
+/*=========================
   Toasting Overriding
 ===========================*/
 

@@ -11,6 +11,21 @@
 .jd-text-title--s {
   font-size: 1.5rem;
 }
+
 .jd-text-title--xs {
   font-size: 1rem;
+}
+
+@media #{$up-to-desktop} {
+  .jd-text-title {
+    font-size: 1.5rem;
+  }
+
+  .jd-text-title--s {
+    font-size: 1.1rem;
+  }
+
+  .jd-text-title--xs {
+    font-size: .8rem;
+  }
 }

@@ -8,10 +8,12 @@ const LevelStyle = {
   [LevelValue.EXTRA_HARD]: TagStyle.ERROR,
 };
 
-function Level({ level }) {
+function Level(props) {
+  const { className, level } = props;
+
   return (
     <Tag
-      className="jd-card__level"
+      className={className}
       style={LevelStyle[level.value]}
       tag="p"
     >
