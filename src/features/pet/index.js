@@ -3,4 +3,7 @@ export { default as Gallery } from './gallery/gallery';
 export { default as AboutPet } from './about-pet/about-pet';
 export { default as Specification } from './specification/specification';
 export { default as UsefulLinks } from './useful-links/useful-links';
+export { default as Solution } from './solutions/solution';
+export { default as SolutionList } from './solutions/solution-list';
+export { default as Solutions } from './solutions/solutions';
 export { default as DownloadResources } from './download-resources/download-resources';

@@ -43,7 +43,8 @@ $jd-icons:
   // social
   'telegram', 'github', 'twitter',
   // brands
-  'figma', 'youtube';
+  'figma', 'youtube',
+  'external-link';
 
 @each $name in $jd-icons {
   .jd-icon--#{$name} {

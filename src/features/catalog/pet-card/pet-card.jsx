@@ -33,12 +33,12 @@ const getTextWithHighlights = (text, highlight) => {
 function PetCard(props) {
   const { pet, search } = props;
   const {
-    title, description, level, tags, img, resources, slug, createdDate,
+    title, description, level, tags, img, resources, slug,
   } = pet;
 
   const visibleTitle = getTextWithHighlights(title, search);
   const visibleDescription = getTextWithHighlights(description, search);
-  const hasTags = (tags.length !== 1) && (tags[0] !== '');
+  const hasTags = !(tags.length === 1 && tags[0] === '');
 
   return (
     <article className="jd-card">
@@ -63,14 +63,6 @@ function PetCard(props) {
 
         <p className="jd-card__description">
           {visibleDescription}
-        </p>
-
-        {/* TODO: удалить отображение даты */}
-        <p className="jd-card__description">
-          <br />
-          Дата создания:
-          {' '}
-          {createdDate.toDateString()}
         </p>
 
         { hasTags && (

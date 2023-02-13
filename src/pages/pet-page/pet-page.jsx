@@ -11,6 +11,7 @@ import {
   AboutPet,
   DownloadResources,
   Gallery,
+  Solutions,
   Specification,
   UsefulLinks,
 } from 'features/pet';
@@ -83,6 +84,8 @@ function PetPage() {
                 id={linksTableId}
               />
             )}
+
+            <Solutions className="jd-spacer-top-2xl" />
           </div>
 
           <div className="jd-pet-layout__main-side">

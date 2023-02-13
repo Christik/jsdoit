@@ -1,0 +1,57 @@
+@import 'assets/scss/base/variables';
+@import 'assets/scss/tokens/border-radius';
+@import 'assets/scss/tokens/shadow';
+@import 'assets/scss/typography/body';
+
+/*=========================
+  Github User
+===========================*/
+
+.jd-user {
+  display: flex;
+  align-items: center;
+}
+
+.jd-user__avatar {
+  width: $jd-control-height-s;
+  height: $jd-control-height-s;
+  border-radius: 50%;
+  border: solid 1px $jd-color-border-primary;
+  background: $jd-color-bg-secondary;
+}
+
+.jd-user__name {
+  @extend .jd-text-body;
+
+  margin-left: map-get($jd-spacers, 'xs');
+  font-weight: 500;
+}
+
+/*=========================
+  Solution
+===========================*/
+
+.jd-solution {
+  @include jd-border-radius-m();
+  @include jd-shadow-m();
+
+  padding: map-get($jd-spacers, 'm');
+  color: $jd-color-text-secondary;
+  background: $jd-color-bg-primary;
+}
+
+.jd-solution__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.jd-solution__links {
+  display: flex;
+  gap: map-get($jd-spacers, 'xs')
+}
+
+.jd-solution__description,
+.jd-solution__tags {
+  margin-top: map-get($jd-spacers, 'xs')
+}

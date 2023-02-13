@@ -19,32 +19,12 @@
   border-radius: calc($jd-control-height / 2);
   letter-spacing: .02em;
   line-height: 1;
-
-  &:before, &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: inherit;
-    pointer-events: none;
-  }
-
-  &:before {
-    background: $jd-color-bg-accent;
-    z-index: -1;
-  }
-
-  &:after {
-    border: solid 3px $jd-color-bg-accent;
-  }
+  background: $jd-color-bg-accent;
 }
 
 .jd-button .jd-button__icon {
-  width: 1rem;
-  height: 1rem;
+  width: map-get($jd-spacers, 'm');
+  height: map-get($jd-spacers, 'm');
   background-color: $jd-color-text-primary-inverse;
 }
 
@@ -53,30 +33,6 @@
 ===========================*/
 
 @media (hover: hover) {
-  .jd-button {
-    transition: color .3s;
-
-    &:before {
-      transition: transform .3s, opacity .3s;
-    }
-  }
-
-  .jd-button__icon {
-    transition: background-color .3s;
-  }
-
-  .jd-button:hover {
-    color: $jd-color-text-accent;
-
-    &:before {
-      transform: scale(.5);
-      opacity: 0;
-    }
-
-    .jd-button__icon {
-      background-color: $jd-color-text-accent;
-    }
-  }
 }
 
 /*=========================
@@ -87,4 +43,27 @@
   display: flex;
   padding-left: 0;
   padding-right: 0;
+}
+
+/*=========================
+  Outline
+===========================*/
+
+.jd-button--outline {
+  border: solid 1px $jd-color-border-primary;
+  color: $jd-color-text-accent;
+  background: none;
+
+  .jd-button__icon {
+    background-color: $jd-color-text-accent;
+  }
+}
+
+/*=========================
+  Sizes
+===========================*/
+
+.jd-button--s {
+  height: $jd-control-height-s;
+  border: solid 1px $jd-color-border-primary;
 }

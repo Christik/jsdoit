@@ -1,0 +1,11 @@
+@import 'assets/scss/base/variables';
+
+/*=========================
+  Solution List
+===========================*/
+
+.jd-solution-list {
+  display: flex;
+  flex-direction: column;
+  gap: map-get($jd-spacers, 'm');
+}
