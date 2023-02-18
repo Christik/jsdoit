@@ -1,4 +1,4 @@
-import { SolutionList } from 'features/pet';
+import { SolutionList, EmptySolutionList } from 'features/pet';
 
 const solutions = [
   'https://github.com/Christik/form-validator-markup',
@@ -15,7 +15,11 @@ function Solutions({ className }) {
         Решения
       </h2>
 
-      <SolutionList urls={solutions} />
+      {
+        solutions.length !== 0
+          ? <SolutionList urls={solutions} />
+          : <EmptySolutionList />
+      }
     </section>
   );
 }
