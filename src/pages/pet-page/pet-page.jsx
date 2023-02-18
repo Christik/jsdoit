@@ -83,7 +83,10 @@ function PetPage() {
               />
             )}
 
-            <Solutions className="jd-spacer-top-2xl" />
+            <Solutions
+              className="jd-spacer-top-2xl"
+              ids={pet.solutions}
+            />
           </div>
 
           <div className="jd-pet-layout__main-side">

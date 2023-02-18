@@ -3,3 +3,4 @@ export { default as getLevels } from './levels/levels';
 export { default as getResources } from './resources/resources';
 export { default as getPetBySlug } from './pet/pet';
 export { default as getUsefulLinks } from './useful-links/useful-links';
+export { default as getSolutions } from './solutions/solutions';
