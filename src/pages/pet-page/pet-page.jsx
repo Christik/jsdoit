@@ -23,8 +23,6 @@ function PetPage() {
 
   const { slug } = useParams();
 
-  const linksTableId = pet?.links ? pet?.links[0] : null;
-
   useEffect(() => {
     let isMounted = true;
 
@@ -78,10 +76,10 @@ function PetPage() {
           <div className="jd-pet-layout__main-content">
             <Specification content={pet.specification} />
 
-            { linksTableId && (
+            { pet.usefulLinks && (
               <UsefulLinks
                 className="jd-spacer-top-2xl"
-                id={linksTableId}
+                ids={pet.usefulLinks}
               />
             )}
 

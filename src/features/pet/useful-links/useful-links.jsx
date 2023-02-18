@@ -9,7 +9,7 @@ const LinkIcon = {
 };
 
 function UsefulLinks(props) {
-  const { className, id } = props;
+  const { className, ids } = props;
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -20,11 +20,14 @@ function UsefulLinks(props) {
   useEffect(() => {
     const getLinks = async () => {
       try {
-        const data = await getUsefulLinks(id);
-        const adaptedLinks = data.map(({ type, ...rest }) => ({
-          ...rest,
-          icon: LinkIcon[type],
-        }));
+        const data = await getUsefulLinks(ids[0]);
+
+        const adaptedLinks = data
+          .filter(({ id }) => ids.includes(id))
+          .map(({ type, ...rest }) => ({
+            ...rest,
+            icon: LinkIcon[type],
+          }));
 
         setLinks(adaptedLinks);
       } catch (error) {
@@ -35,7 +38,7 @@ function UsefulLinks(props) {
     };
 
     getLinks();
-  }, [id]);
+  }, [ids]);
 
   return (
     <section className={className}>
