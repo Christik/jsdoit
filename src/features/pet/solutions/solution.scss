@@ -44,6 +44,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: map-get($jd-spacers, 's') map-get($jd-spacers, 'm');
 }
 
 .jd-solution__links {
