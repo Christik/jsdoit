@@ -23,6 +23,7 @@ const extractGitHubRepoPath = (ghUrl) => {
 
 function SolutionList({ urls }) {
   const [solutions, setSolutions] = useState(null);
+  const [sortedSolutions, setSortedSolutions] = useState(null);
 
   useEffect(() => {
     const initSolutions = async () => {
@@ -40,14 +41,26 @@ function SolutionList({ urls }) {
     initSolutions();
   }, [urls]);
 
-  if (solutions === null) {
+  useEffect(() => {
+    if (solutions) {
+      const sortedData = solutions.sort((prevResponse, response) => {
+        const ms = Date.parse(response.pushed_at);
+        const prevMs = Date.parse(prevResponse.pushed_at);
+        return (ms - prevMs);
+      });
+
+      setSortedSolutions(sortedData);
+    }
+  }, [solutions]);
+
+  if (sortedSolutions === null) {
     return null;
   }
 
   return (
     <ul className="jd-solution-list">
       {
-        solutions.map((solution) => (
+        sortedSolutions.map((solution) => (
           <li key={solution.html_url}>
             <Solution repository={solution} />
           </li>
